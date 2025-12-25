@@ -3,8 +3,26 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./css": "./dist/css/tokens.css",
+    "./nativewind": {
+      "import": "./dist/nativewind/theme.ts",
+      "types": "./dist/nativewind/theme.ts"
+    },
+    "./swift": "./dist/swift/DesignTokens.swift",
+    "./json": "./dist/tokens.json"
+  },
   "scripts": {
-    "build": "tsc"
+    "build": "npm run build:ts && npm run build:css && npm run build:nativewind && npm run build:swift && npm run build:json",
+    "build:ts": "tsc",
+    "build:css": "node scripts/build-css.js",
+    "build:nativewind": "node scripts/build-nativewind.js",
+    "build:swift": "node scripts/build-swift.js",
+    "build:json": "node -e \"const fs=require('fs');const p=require('path');fs.mkdirSync('dist',{recursive:true});fs.writeFileSync('dist/tokens.json',JSON.stringify({colors:require('./src/colors.json'),typography:require('./src/typography.json'),spacing:require('./src/spacing.json')},null,2))\""
   },
   "devDependencies": {
     "typescript": "^5.3.0"
