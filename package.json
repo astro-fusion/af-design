@@ -1,0 +1,25 @@
+{
+  "name": "astrofusion-design-system",
+  "version": "0.0.1",
+  "private": true,
+  "description": "The LLM-First Design System. Built for Humans & Agents.",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "setup": "node scripts/rename-project.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "turbo": "^1.10.0",
+    "typescript": "^5.3.0"
+  },
+  "workspaces": [
+    "tokens",
+    "components",
+    "mcp-server",
+    "prompts"
+  ],
+  "packageManager": "pnpm@10.26.2+sha512.0e308ff2005fc7410366f154f625f6631ab2b16b1d2e70238444dd6ae9d630a8482d92a451144debc492416896ed16f7b114a86ec68b8404b2443869e68ffda6"
+}

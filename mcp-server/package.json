@@ -1,0 +1,20 @@
+{
+  "name": "@astrofusion/design-mcp-server",
+  "version": "0.0.1",
+  "bin": {
+    "astrofusion-design-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "@astrofusion/design-tokens": "workspace:*",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.0.0"
+  }
+}
