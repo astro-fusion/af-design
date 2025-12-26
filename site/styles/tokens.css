@@ -1,0 +1,51 @@
+/**
+ * Design Tokens as CSS Custom Properties
+ * Auto-generated from tokens/src/*.json
+ */
+:root {
+  /* Colors - Cosmic */
+  --color-cosmic-900: #0f0c29;
+  --color-cosmic-800: #1a163a;
+  --color-cosmic-700: #24204b;
+  --color-cosmic-600: #2f2a5c;
+
+  /* Colors - Starlight */
+  --color-starlight-100: #ffffff;
+  --color-starlight-200: #f8f9fa;
+  --color-starlight-300: #e9ecef;
+
+  /* Colors - Surface */
+  --color-surface-glass: rgba(255, 255, 255, 0.1);
+  --color-surface-glass-dark: rgba(0, 0, 0, 0.3);
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-mono: 'Fira Code', 'Consolas', monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+
+  /* Spacing */
+  --space-0: 0px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Borders */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}

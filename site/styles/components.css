@@ -1,0 +1,133 @@
+/**
+ * AstroFusion Design System - Component Styles
+ * Pure CSS implementation of the design system components
+ */
+
+/* ==========================================================================
+   Button Component
+   ========================================================================== */
+
+.af-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.af-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 42, 92, 0.4);
+}
+
+/* Variants */
+.af-button--primary {
+  background-color: var(--color-cosmic-600);
+  color: var(--color-starlight-100);
+}
+
+.af-button--primary:hover {
+  background-color: var(--color-cosmic-700);
+}
+
+.af-button--secondary {
+  background-color: var(--color-starlight-200);
+  color: var(--color-cosmic-900);
+}
+
+.af-button--secondary:hover {
+  background-color: var(--color-starlight-300);
+}
+
+.af-button--glass {
+  background-color: var(--color-surface-glass);
+  color: var(--color-starlight-100);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.af-button--glass:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Sizes */
+.af-button--sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-sm);
+}
+
+.af-button--md {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-base);
+}
+
+.af-button--lg {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-lg);
+}
+
+/* ==========================================================================
+   Card Component
+   ========================================================================== */
+
+.af-card {
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  transition: all 0.2s ease;
+}
+
+.af-card--solid {
+  background-color: var(--color-starlight-100);
+  border: 1px solid var(--color-starlight-300);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.af-card--solid h4 {
+  color: var(--color-cosmic-900);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.af-card--solid p {
+  color: var(--color-cosmic-700);
+  margin: 0;
+}
+
+.af-card--glass {
+  background-color: var(--color-surface-glass);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.af-card--glass h4 {
+  color: var(--color-starlight-100);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.af-card--glass p {
+  color: var(--color-starlight-200);
+  margin: 0;
+}
+
+/* Dark mode for solid cards */
+@media (prefers-color-scheme: dark) {
+  .af-card--solid {
+    background-color: var(--color-cosmic-800);
+    border-color: var(--color-cosmic-700);
+  }
+
+  .af-card--solid h4 {
+    color: var(--color-starlight-100);
+  }
+
+  .af-card--solid p {
+    color: var(--color-starlight-300);
+  }
+}
