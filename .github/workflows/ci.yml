@@ -30,7 +30,7 @@ jobs:
         run: pnpm install
 
       - name: Build tokens
-        run: cd tokens && pnpm run build
+        run: cd packages/core/tokens && pnpm run build
 
       - name: Type check
         run: pnpm exec tsc --noEmit
