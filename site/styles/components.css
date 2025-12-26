@@ -1,133 +1,370 @@
 /**
- * AstroFusion Design System - Component Styles
- * Pure CSS implementation of the design system components
+ * AstroFusion Design System - Component Styles (Static CSS)
+ * Pure CSS implementation matching the React component library
  */
 
-/* ==========================================================================
+/* ============================================================================
    Button Component
-   ========================================================================== */
+   ============================================================================ */
 
 .af-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-lg);
-  font-family: var(--font-sans);
-  font-weight: 600;
+  border-radius: 0.5rem;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-weight: 500;
   cursor: pointer;
   border: none;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
 }
 
-.af-button:focus {
+.af-button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(47, 42, 92, 0.4);
+  box-shadow: 0 0 0 2px var(--primary, #6366f1);
+}
+
+.af-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Variants */
 .af-button--primary {
-  background-color: var(--color-cosmic-600);
-  color: var(--color-starlight-100);
+  background-color: var(--primary, #6366f1);
+  color: white;
 }
 
-.af-button--primary:hover {
-  background-color: var(--color-cosmic-700);
+.af-button--primary:hover:not(:disabled) {
+  background-color: #4f46e5;
 }
 
 .af-button--secondary {
-  background-color: var(--color-starlight-200);
-  color: var(--color-cosmic-900);
+  background-color: var(--muted, #f1f5f9);
+  color: var(--foreground, #0f172a);
 }
 
-.af-button--secondary:hover {
-  background-color: var(--color-starlight-300);
+.af-button--secondary:hover:not(:disabled) {
+  background-color: #e2e8f0;
+}
+
+.af-button--destructive {
+  background-color: #dc2626;
+  color: white;
+}
+
+.af-button--destructive:hover:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+.af-button--outline {
+  background-color: transparent;
+  color: var(--foreground, #0f172a);
+  border: 1px solid var(--border, #e2e8f0);
+}
+
+.af-button--outline:hover:not(:disabled) {
+  background-color: var(--muted, #f1f5f9);
+}
+
+.af-button--ghost {
+  background-color: transparent;
+  color: var(--foreground, #0f172a);
+}
+
+.af-button--ghost:hover:not(:disabled) {
+  background-color: var(--muted, #f1f5f9);
 }
 
 .af-button--glass {
-  background-color: var(--color-surface-glass);
-  color: var(--color-starlight-100);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-.af-button--glass:hover {
+.af-button--glass:hover:not(:disabled) {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Sizes */
 .af-button--sm {
-  padding: var(--space-1) var(--space-3);
-  font-size: var(--font-size-sm);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
 }
 
-.af-button--md {
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--font-size-base);
+.af-button--md,
+.af-button:not(.af-button--sm):not(.af-button--lg):not(.af-button--icon) {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
 }
 
 .af-button--lg {
-  padding: var(--space-3) var(--space-6);
-  font-size: var(--font-size-lg);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
 }
 
-/* ==========================================================================
+.af-button--icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+/* ============================================================================
    Card Component
-   ========================================================================== */
+   ============================================================================ */
 
 .af-card {
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
   transition: all 0.2s ease;
 }
 
 .af-card--solid {
-  background-color: var(--color-starlight-100);
-  border: 1px solid var(--color-starlight-300);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: var(--card, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .af-card--solid h4 {
-  color: var(--color-cosmic-900);
-  margin: 0 0 var(--space-2) 0;
+  color: var(--foreground, #0f172a);
+  margin: 0 0 0.5rem 0;
 }
 
 .af-card--solid p {
-  color: var(--color-cosmic-700);
+  color: var(--muted-foreground, #64748b);
   margin: 0;
 }
 
 .af-card--glass {
-  background-color: var(--color-surface-glass);
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .af-card--glass h4 {
-  color: var(--color-starlight-100);
-  margin: 0 0 var(--space-2) 0;
+  color: white;
+  margin: 0 0 0.5rem 0;
 }
 
 .af-card--glass p {
-  color: var(--color-starlight-200);
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
-/* Dark mode for solid cards */
-@media (prefers-color-scheme: dark) {
-  .af-card--solid {
-    background-color: var(--color-cosmic-800);
-    border-color: var(--color-cosmic-700);
-  }
+/* ============================================================================
+   Box Variants (Planetary Colors)
+   ============================================================================ */
 
-  .af-card--solid h4 {
-    color: var(--color-starlight-100);
-  }
+.af-box--yellow {
+  background-color: #fffbeb;
+  color: #422006;
+}
 
-  .af-card--solid p {
-    color: var(--color-starlight-300);
-  }
+.af-box--red {
+  background-color: #fef2f2;
+  color: #450a0a;
+}
+
+.af-box--green {
+  background-color: #f0fdf4;
+  color: #052e16;
+}
+
+.af-box--pink {
+  background-color: #fdf2f8;
+  color: #500724;
+}
+
+.af-box--orange {
+  background-color: #fff7ed;
+  color: #431407;
+}
+
+.af-box--black {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Dark mode variants */
+[data-theme="dark"] .af-box--yellow {
+  background-color: #422006;
+  color: #fef3c7;
+}
+
+[data-theme="dark"] .af-box--red {
+  background-color: #450a0a;
+  color: #fecaca;
+}
+
+[data-theme="dark"] .af-box--green {
+  background-color: #052e16;
+  color: #bbf7d0;
+}
+
+[data-theme="dark"] .af-box--pink {
+  background-color: #500724;
+  color: #fbcfe8;
+}
+
+[data-theme="dark"] .af-box--orange {
+  background-color: #431407;
+  color: #fed7aa;
+}
+
+[data-theme="dark"] .af-box--black {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* ============================================================================
+   Input Component
+   ============================================================================ */
+
+.af-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  background-color: var(--background, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 0.5rem;
+  color: var(--foreground, #0f172a);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.af-input:focus {
+  outline: none;
+  border-color: var(--primary, #6366f1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.af-input::placeholder {
+  color: var(--muted-foreground, #64748b);
+}
+
+.af-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   Badge Component
+   ============================================================================ */
+
+.af-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+}
+
+.af-badge--default {
+  background-color: var(--muted, #f1f5f9);
+  color: var(--foreground, #0f172a);
+}
+
+.af-badge--primary {
+  background-color: var(--primary, #6366f1);
+  color: white;
+}
+
+.af-badge--success {
+  background-color: #10b981;
+  color: white;
+}
+
+.af-badge--warning {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.af-badge--error {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* ============================================================================
+   Typography
+   ============================================================================ */
+
+.af-h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--foreground, #0f172a);
+  margin: 0;
+}
+
+.af-h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--foreground, #0f172a);
+  margin: 0;
+}
+
+.af-h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--foreground, #0f172a);
+  margin: 0;
+}
+
+.af-h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--foreground, #0f172a);
+  margin: 0;
+}
+
+.af-p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--foreground, #0f172a);
+  margin: 0;
+}
+
+.af-lead {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--muted-foreground, #64748b);
+  margin: 0;
+}
+
+.af-muted {
+  color: var(--muted-foreground, #64748b);
+}
+
+/* ============================================================================
+   Utility Classes
+   ============================================================================ */
+
+.af-animate-fade-in {
+  animation: af-fade-in 0.3s ease;
+}
+
+@keyframes af-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.af-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

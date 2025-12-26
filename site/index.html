@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -9,255 +9,759 @@
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/site.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <nav class="af-nav">
-        <div class="af-nav__logo">🌌 AstroFusion Design</div>
-        <div class="af-nav__links">
-            <a href="#buttons" data-tab="buttons">Buttons</a>
-            <a href="#cards" data-tab="cards">Cards</a>
-            <a href="#tokens" data-tab="tokens">Tokens</a>
-            <a href="https://github.com/astro-fusion/af-design" target="_blank">GitHub</a>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-header__brand">
+            <div class="brand-logo">AF</div>
+            <span class="brand-name">Design System</span>
         </div>
-    </nav>
-
-    <header class="af-hero af-hero--compact">
-        <h1>AstroFusion Design System</h1>
-        <p class="af-hero__subtitle">The LLM-First Design System. Built for Humans & Agents.</p>
-
-        <!-- Platform Selector (syncs with URL) -->
-        <div class="af-platform-selector" id="platform-selector">
-            <button class="af-platform-btn" data-platform="web">🌐 Web</button>
-            <button class="af-platform-btn" data-platform="react-native">📱 React Native</button>
-            <button class="af-platform-btn" data-platform="ios">🍎 iOS</button>
-            <button class="af-platform-btn" data-platform="android">🤖 Android</button>
-        </div>
+        <button id="mobile-menu-toggle" class="mobile-header__toggle" aria-label="Toggle menu">
+            <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" style="display:none">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
     </header>
 
-    <main class="af-main">
-        <!-- AI Prompt Display Box (like in localhost:3000/design) -->
-        <div id="prompt-display" class="af-prompt-display" hidden>
-            <div class="af-prompt-display__header">
-                <span>AI Prompt:</span>
-                <div class="af-prompt-display__actions">
-                    <button id="edit-prompt" title="Edit prompt">✏️</button>
-                    <button id="copy-current-prompt" title="Copy to clipboard">📋</button>
-                    <button id="clear-prompt" title="Clear">✕</button>
-                </div>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+            <div class="sidebar__brand">
+                <div class="brand-logo">AF</div>
+                <span class="brand-name">Design System</span>
             </div>
-            <pre id="prompt-content" class="af-prompt-display__content"></pre>
         </div>
 
+        <nav class="sidebar__nav">
+            <!-- Overview -->
+            <a href="#overview" class="nav-item nav-item--active" data-section="overview">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                <span>Overview</span>
+            </a>
+
+            <!-- Foundations -->
+            <div class="nav-section-header">Foundations</div>
+            <a href="#typography" class="nav-item" data-section="typography">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="4 7 4 4 20 4 20 7" />
+                    <line x1="9" y1="20" x2="15" y2="20" />
+                    <line x1="12" y1="4" x2="12" y2="20" />
+                </svg>
+                <span>Typography</span>
+            </a>
+            <a href="#colors" class="nav-item" data-section="colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="13.5" cy="6.5" r="2.5" />
+                    <circle cx="17.5" cy="10.5" r="2.5" />
+                    <circle cx="8.5" cy="7.5" r="2.5" />
+                    <circle cx="6.5" cy="12.5" r="2.5" />
+                    <path d="M12 22c6.5-6.5 0-13-6-6" />
+                </svg>
+                <span>Colors</span>
+            </a>
+            <a href="#tokens" class="nav-item" data-section="tokens">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                </svg>
+                <span>Tokens</span>
+            </a>
+            <a href="#icons" class="nav-item" data-section="icons">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <span>Icons</span>
+            </a>
+            <a href="#theming" class="nav-item" data-section="theming">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a10 10 0 0 0 0 20" />
+                </svg>
+                <span>Theming</span>
+            </a>
+
+            <!-- Components -->
+            <div class="nav-section-header">Components</div>
+            <a href="#buttons" class="nav-item" data-section="buttons">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14" />
+                    <path d="M12 5l7 7-7 7" />
+                </svg>
+                <span>Buttons</span>
+            </a>
+            <a href="#layout" class="nav-item" data-section="layout">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                    <line x1="9" y1="21" x2="9" y2="9" />
+                </svg>
+                <span>Layout & Boxes</span>
+            </a>
+            <a href="#forms" class="nav-item" data-section="forms">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7V4h16v3" />
+                    <path d="M9 20h6" />
+                    <path d="M12 4v16" />
+                </svg>
+                <span>Forms</span>
+            </a>
+            <a href="#data-display" class="nav-item" data-section="data-display">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="8" y1="6" x2="21" y2="6" />
+                    <line x1="8" y1="12" x2="21" y2="12" />
+                    <line x1="8" y1="18" x2="21" y2="18" />
+                    <line x1="3" y1="6" x2="3.01" y2="6" />
+                    <line x1="3" y1="12" x2="3.01" y2="12" />
+                    <line x1="3" y1="18" x2="3.01" y2="18" />
+                </svg>
+                <span>Data Display</span>
+            </a>
+            <a href="#animation" class="nav-item" data-section="animation">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3a9 9 0 1 0 9 9" />
+                </svg>
+                <span>Animation</span>
+            </a>
+
+            <!-- AI & Agents -->
+            <div class="nav-section-header">AI & Agents</div>
+            <a href="#generative" class="nav-item" data-section="generative">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+                    <rect x="9" y="9" width="6" height="6" />
+                    <line x1="9" y1="2" x2="9" y2="4" />
+                    <line x1="15" y1="2" x2="15" y2="4" />
+                    <line x1="9" y1="20" x2="9" y2="22" />
+                    <line x1="15" y1="20" x2="15" y2="22" />
+                    <line x1="20" y1="9" x2="22" y2="9" />
+                    <line x1="20" y1="15" x2="22" y2="15" />
+                    <line x1="2" y1="9" x2="4" y2="9" />
+                    <line x1="2" y1="15" x2="4" y2="15" />
+                </svg>
+                <span>Generative UI</span>
+            </a>
+            <a href="#mcp" class="nav-item" data-section="mcp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                    <line x1="6" y1="6" x2="6.01" y2="6" />
+                    <line x1="6" y1="18" x2="6.01" y2="18" />
+                </svg>
+                <span>MCP Server</span>
+            </a>
+            <a href="#prompts" class="nav-item" data-section="prompts">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3l1.5 4.5h4.5l-3.5 2.5 1.5 4.5-4-3-4 3 1.5-4.5-3.5-2.5h4.5z" />
+                    <path d="M12 17v4" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                </svg>
+                <span>AI Prompts</span>
+            </a>
+        </nav>
+
+        <div class="sidebar__footer">
+            <button id="theme-toggle" class="theme-toggle">
+                <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+                <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" style="display:none">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+                <span class="theme-label">Light Mode</span>
+            </button>
+            <div class="sidebar__version">v2.1 • AI Enabled</div>
+        </div>
+    </aside>
+
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+
+        <!-- Overview Section -->
+        <section id="overview" class="section section--active">
+            <div class="section__header">
+                <h1 class="section__title">AstroFusion Design System</h1>
+                <p class="section__lead">LLM-First Design System. Built for AI agents. Generative UI ready. MCP enabled.
+                </p>
+                <p class="section__desc">A design system built with AI and LLMs in mind — enabling agents to query
+                    tokens via MCP, generate safe UI with A2UI, and maintain design consistency across human and machine
+                    collaborators.</p>
+            </div>
+
+            <div class="cards-grid cards-grid--2col">
+                <div class="card card--bordered-left card--amber">
+                    <div class="card__header">
+                        <span class="card__icon">✨</span>
+                        <h3 class="card__title">Generative UI (A2UI)</h3>
+                    </div>
+                    <p class="card__desc">JSON-driven rendering based on <a href="https://github.com/google/A2UI"
+                            target="_blank">Google A2UI</a>. AI agents generate safe, native UI without code injection
+                        risks.</p>
+                    <a href="#generative" class="card__link" data-section="generative">Try the Demo →</a>
+                </div>
+
+                <div class="card card--bordered-left card--green">
+                    <div class="card__header">
+                        <span class="card__icon">🤖</span>
+                        <h3 class="card__title">MCP Server</h3>
+                    </div>
+                    <p class="card__desc">Model Context Protocol server exposes design tokens to AI assistants. Works
+                        with Cursor, Claude Desktop, VS Code, and more.</p>
+                    <a href="#mcp" class="card__link" data-section="mcp">View Documentation →</a>
+                </div>
+            </div>
+
+            <div class="card card--bordered-left card--primary">
+                <h3 class="card__title">📱 Cross-Platform (Encore Pattern)</h3>
+                <p class="card__desc">Same API, different renderers. Web uses Tailwind, Native uses NativeWind. One
+                    design system, two platforms.</p>
+
+                <div class="code-compare">
+                    <div class="code-compare__item">
+                        <div class="code-label">
+                            <span class="code-badge code-badge--blue">.tsx</span>
+                            <span>React (Web)</span>
+                        </div>
+                        <pre class="code-block code-block--blue"><code>// Button.tsx (Web)
+import { cn } from "./utils";
+
+export const AFButton = ({ variant, children }) => (
+  &lt;button className={cn(
+    "rounded-lg px-4 py-2 font-medium",
+    variant === "default" && "bg-primary text-white",
+    variant === "outline" && "border border-primary"
+  )}&gt;
+    {children}
+  &lt;/button&gt;
+);</code></pre>
+                    </div>
+                    <div class="code-compare__item">
+                        <div class="code-label">
+                            <span class="code-badge code-badge--green">.native.tsx</span>
+                            <span>React Native</span>
+                        </div>
+                        <pre class="code-block code-block--green"><code>// Button.native.tsx (Mobile)
+import { Pressable, Text } from "react-native";
+
+export const AFButton = ({ variant, children }) => (
+  &lt;Pressable className={cn(
+    "rounded-lg px-4 py-2",
+    variant === "default" && "bg-primary",
+    variant === "outline" && "border border-primary"
+  )}&gt;
+    &lt;Text className="font-medium"&gt;{children}&lt;/Text&gt;
+  &lt;/Pressable&gt;
+);</code></pre>
+                    </div>
+                </div>
+                <p class="card__hint">💡 Import is the same:
+                    <code>import { AFButton } from '@astrofusion/design-system'</code></p>
+            </div>
+
+            <div class="cards-grid cards-grid--2col">
+                <div class="card card--bordered-left card--purple">
+                    <h3 class="card__title">Multi-Language</h3>
+                    <p class="card__desc">Hind for English/Nepali UI, JetBrains Mono for astronomical data.</p>
+                    <div class="lang-demo">
+                        <div class="lang-row"><span class="lang-label">English</span><span>Saturn in Pisces</span></div>
+                        <div class="lang-row"><span class="lang-label">नेपाली</span><span class="font-devanagari">शनि
+                                मीन राशिमा</span></div>
+                        <div class="lang-row"><span class="lang-label">Data</span><span class="font-mono data-badge">12°
+                                34' 56"</span></div>
+                    </div>
+                </div>
+
+                <div class="card card--bordered-left card--cyan">
+                    <h3 class="card__title">Design Tokens</h3>
+                    <p class="card__desc">JSON tokens for Figma, Style Dictionary, and AI agents.</p>
+                    <a href="https://github.com/astro-fusion/af-design/tree/main/packages/core/tokens" target="_blank"
+                        class="btn btn--small btn--cyan">
+                        <span>⬇</span> tokens.json
+                    </a>
+                </div>
+            </div>
+
+            <div class="card card--gradient">
+                <h3 class="card__title">🚀 Quick Start for AI Agents</h3>
+                <div class="code-compare">
+                    <div class="code-compare__item">
+                        <p class="code-step">1. Enable MCP Server</p>
+                        <pre class="code-block code-block--green"><code>// Add to mcp.json
+"astrofusion-design": {
+  "command": "npx",
+  "args": ["tsx", "mcp-server.ts"]
+}</code></pre>
+                    </div>
+                    <div class="code-compare__item">
+                        <p class="code-step">2. Generate UI with A2UI</p>
+                        <pre class="code-block code-block--blue"><code>&lt;GenerativeRenderer
+  data={agentResponse.ui}
+  onAction={handleAction}
+/&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Buttons Section -->
-        <section id="buttons" class="af-section" data-tab="buttons">
-            <h2>🎯 Buttons</h2>
-            <p>Interactive elements for triggering actions. Supports multiple variants and sizes.</p>
+        <section id="buttons" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Buttons</h2>
+                <p class="section__lead">Interactive elements for triggering actions. Supports multiple variants and
+                    sizes.</p>
+            </div>
 
-            <div class="af-component-card">
-                <h3>Variants</h3>
+            <div class="card">
+                <h3 class="card__title">Variants</h3>
 
-                <!-- Primary Button Row -->
-                <div class="af-component-row">
-                    <div class="af-component-row__left">
+                <div class="component-row">
+                    <div class="component-row__left">
                         <button class="af-button af-button--primary">Default</button>
-                        <div class="af-component-row__label">
-                            <span class="af-component-row__title">Primary Action</span>
-                            <span class="af-component-row__desc">— Main call-to-action</span>
+                        <div class="component-row__label">
+                            <span class="component-row__title">Primary Action</span>
+                            <span class="component-row__desc">— Main call-to-action</span>
                         </div>
                     </div>
-                    <div class="af-component-row__actions">
-                        <button class="af-copy-icon" data-component="button-primary" title="Copy AI Prompt">📋</button>
-                    </div>
+                    <button class="copy-icon" data-component="button-primary" title="Copy AI Prompt">📋</button>
                 </div>
 
-                <!-- Secondary Button Row -->
-                <div class="af-component-row">
-                    <div class="af-component-row__left">
+                <div class="component-row">
+                    <div class="component-row__left">
                         <button class="af-button af-button--secondary">Secondary</button>
-                        <div class="af-component-row__label">
-                            <span class="af-component-row__title">Alternative</span>
-                            <span class="af-component-row__desc">— Less emphasis</span>
+                        <div class="component-row__label">
+                            <span class="component-row__title">Alternative</span>
+                            <span class="component-row__desc">— Less emphasis</span>
                         </div>
                     </div>
-                    <div class="af-component-row__actions">
-                        <button class="af-copy-icon" data-component="button-secondary"
-                            title="Copy AI Prompt">📋</button>
+                    <button class="copy-icon" data-component="button-secondary" title="Copy AI Prompt">📋</button>
+                </div>
+
+                <div class="component-row component-row--destructive">
+                    <div class="component-row__left">
+                        <button class="af-button af-button--destructive">Destructive</button>
+                        <div class="component-row__label">
+                            <span class="component-row__title" style="color: var(--color-red-700)">Danger Zone</span>
+                            <span class="component-row__desc" style="color: var(--color-red-600)">— Irreversible
+                                actions</span>
+                        </div>
+                    </div>
+                    <button class="copy-icon" data-component="button-destructive" title="Copy AI Prompt">📋</button>
+                </div>
+
+                <div class="component-row">
+                    <div class="component-row__left">
+                        <button class="af-button af-button--outline">Outline</button>
+                        <span class="component-row__desc">Bordered, transparent background</span>
                     </div>
                 </div>
 
-                <!-- Glass Button Row -->
-                <div class="af-component-row af-component-row--glass">
-                    <div class="af-component-row__left">
-                        <button class="af-button af-button--glass">Glass</button>
-                        <div class="af-component-row__label">
-                            <span class="af-component-row__title" style="color: #fff">Glassmorphism</span>
-                            <span class="af-component-row__desc" style="color: rgba(255,255,255,0.7)">— For
-                                dark/gradient backgrounds</span>
-                        </div>
-                    </div>
-                    <div class="af-component-row__actions">
-                        <button class="af-copy-icon" data-component="button-glass" title="Copy AI Prompt">📋</button>
+                <div class="component-row">
+                    <div class="component-row__left">
+                        <button class="af-button af-button--ghost">Ghost</button>
+                        <span class="component-row__desc">Minimal, hover-only effect</span>
                     </div>
                 </div>
 
-                <!-- Size Demo -->
-                <h4>Sizes</h4>
-                <div class="af-component-demo">
+                <!-- Glass Context Demo -->
+                <div class="glass-demo">
+                    <p class="glass-demo__label">Glass / Dark Context</p>
+                    <div class="glass-demo__buttons">
+                        <button class="af-button af-button--glass">Glass Variant</button>
+                        <button class="af-button af-button--primary">Primary</button>
+                        <button class="glass-demo__outline">Outline</button>
+                    </div>
+                    <p class="glass-demo__note">⚠️ Glass/transparent buttons need careful contrast consideration on
+                        varying backgrounds.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card__title">Sizes</h3>
+                <div class="component-demo">
                     <button class="af-button af-button--primary af-button--sm">Small</button>
-                    <button class="af-button af-button--primary af-button--md">Medium</button>
+                    <button class="af-button af-button--primary af-button--md">Default</button>
                     <button class="af-button af-button--primary af-button--lg">Large</button>
+                    <button class="af-button af-button--primary af-button--icon">★</button>
                 </div>
             </div>
 
-            <!-- Prompt Types Section -->
-            <div class="af-prompt-types">
-                <h3>📋 AI Prompt Types</h3>
-                <p>Choose the prompt format that best suits your AI workflow:</p>
+            <!-- Prompt Display -->
+            <div id="prompt-display" class="prompt-display" hidden>
+                <div class="prompt-display__header">
+                    <span>AI Prompt:</span>
+                    <div class="prompt-display__actions">
+                        <button id="edit-prompt" title="Edit">✏️</button>
+                        <button id="copy-prompt" title="Copy">📋</button>
+                        <button id="clear-prompt" title="Clear">✕</button>
+                    </div>
+                </div>
+                <pre id="prompt-content" class="prompt-display__content"></pre>
+            </div>
 
-                <div class="af-prompt-tabs">
-                    <button class="af-prompt-tab af-prompt-tab--active" data-prompt-type="simple">Simple</button>
-                    <button class="af-prompt-tab" data-prompt-type="full">Full (v0/Bolt)</button>
-                    <button class="af-prompt-tab" data-prompt-type="system">System Prompt</button>
+            <!-- Specs -->
+            <div class="specs">
+                <div class="specs__row">
+                    <span class="specs__label">Web</span>
+                    <code class="specs__value">packages/ui/components-web/src/Button.tsx</code>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Native</span>
+                    <code class="specs__value">packages/ui/components-native/src/Button.tsx</code>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Usage</span>
+                    <code
+                        class="specs__value">&lt;AFButton variant="default" size="default"&gt;Click Me&lt;/AFButton&gt;</code>
+                </div>
+            </div>
+
+            <!-- Platform Code Viewer -->
+            <div class="source-viewer">
+                <div class="source-viewer__header">
+                    <span class="source-viewer__title">💻 AFButton Source</span>
+                    <div class="platform-tabs" id="button-platform-tabs">
+                        <button class="platform-tab platform-tab--active" data-platform="web">Web</button>
+                        <button class="platform-tab" data-platform="react-native">React Native</button>
+                        <button class="platform-tab" data-platform="ios">iOS</button>
+                        <button class="platform-tab" data-platform="android">Android</button>
+                    </div>
+                </div>
+                <div class="source-viewer__content" id="button-source-content">
+                    <pre><code id="button-source-code"></code></pre>
+                </div>
+                <div class="source-viewer__footer">
+                    <button class="btn btn--small" onclick="copyCurrentCode()">📋 Copy Code</button>
+                    <a href="https://github.com/astro-fusion/af-design/tree/main/packages/ui/components-web"
+                        target="_blank" class="btn btn--small btn--outline">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Colors Section -->
+        <section id="colors" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Vedic Planetary Colors</h2>
+                <p class="section__lead">Traditional colors for all 9 planets (Navagraha) in Vedic astrology. Accessible
+                    pastels with high-contrast text and "Midnight Mode" support.</p>
+            </div>
+
+            <div class="planet-grid">
+                <div class="planet-box planet-box--yellow">
+                    <div class="planet-box__header">
+                        <h3>Jupiter (Guru)</h3>
+                        <button class="copy-icon" data-component="color-jupiter">📋</button>
+                    </div>
+                    <p>Wisdom, expansion, prosperity, and good fortune. The teacher of gods.</p>
+                    <div class="planet-box__colors">
+                        <div><span>Light</span><span>#fffbeb</span></div>
+                        <div><span>Dark</span><span>#422006</span></div>
+                    </div>
+                    <div class="planet-box__footer">
+                        <span>Strength: 88%</span>
+                        <span class="a11y-badge a11y-badge--aaa">AAA 12.8:1</span>
+                    </div>
                 </div>
 
-                <!-- Simple Prompt -->
-                <div class="af-prompt-block" data-prompt-type="simple">
-                    <div class="af-prompt-header">
+                <div class="planet-box planet-box--red">
+                    <div class="planet-box__header">
+                        <h3>Mars (Mangal)</h3>
+                        <button class="copy-icon" data-component="color-mars">📋</button>
+                    </div>
+                    <p>Energy, courage, passion, and transformation. The warrior planet.</p>
+                    <div class="planet-box__colors">
+                        <div><span>Light</span><span>#fef2f2</span></div>
+                        <div><span>Dark</span><span>#450a0a</span></div>
+                    </div>
+                    <div class="planet-box__footer">
+                        <span>Strength: 91%</span>
+                        <span class="a11y-badge a11y-badge--aaa">AAA 12.2:1</span>
+                    </div>
+                </div>
+
+                <div class="planet-box planet-box--green">
+                    <div class="planet-box__header">
+                        <h3>Mercury (Budha)</h3>
+                        <button class="copy-icon" data-component="color-mercury">📋</button>
+                    </div>
+                    <p>Communication, logic, intellect, and adaptability. Messenger of gods.</p>
+                    <div class="planet-box__colors">
+                        <div><span>Light</span><span>#f0fdf4</span></div>
+                        <div><span>Dark</span><span>#001100</span></div>
+                    </div>
+                    <div class="planet-box__footer">
+                        <span>Strength: 76%</span>
+                        <span class="a11y-badge a11y-badge--aaa">AAA 13.2:1</span>
+                    </div>
+                </div>
+
+                <div class="planet-box planet-box--pink">
+                    <div class="planet-box__header">
+                        <h3>Venus (Shukra)</h3>
+                        <button class="copy-icon" data-component="color-venus">📋</button>
+                    </div>
+                    <p>Love, beauty, attraction, luxury, and artistic expression.</p>
+                    <div class="planet-box__colors">
+                        <div><span>Light</span><span>#fdf2f8</span></div>
+                        <div><span>Dark</span><span>#330011</span></div>
+                    </div>
+                    <div class="planet-box__footer">
+                        <span>Strength: 92%</span>
+                        <span class="a11y-badge a11y-badge--aaa">AAA 12.1:1</span>
+                    </div>
+                </div>
+
+                <div class="planet-box planet-box--orange">
+                    <div class="planet-box__header">
+                        <h3>Sun (Surya)</h3>
+                        <button class="copy-icon" data-component="color-sun">📋</button>
+                    </div>
+                    <p>Soul, authority, father figures, vitality, and leadership.</p>
+                    <div class="planet-box__colors">
+                        <div><span>Light</span><span>#fff7ed</span></div>
+                        <div><span>Dark</span><span>#331100</span></div>
+                    </div>
+                    <div class="planet-box__footer">
+                        <span>Strength: 99%</span>
+                        <span class="a11y-badge a11y-badge--aaa">AAA 11.8:1</span>
+                    </div>
+                </div>
+
+                <div class="planet-box planet-box--gray">
+                    <div class="planet-box__header">
+                        <h3>Saturn (Shani)</h3>
+                        <button class="copy-icon" data-component="color-saturn">📋</button>
+                    </div>
+                    <p>Discipline, karma, responsibility, and spiritual growth. The taskmaster.</p>
+                    <div class="planet-box__colors">
+                        <div><span>Light</span><span>#f1f5f9</span></div>
+                        <div><span>Dark</span><span>#020617</span></div>
+                    </div>
+                    <div class="planet-box__footer">
+                        <span>Strength: 89%</span>
+                        <span class="a11y-badge a11y-badge--aaa">AAA 12.4:1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card--dark">
+                <h3 class="card__title" style="color: #fff">Midnight Mode Preview</h3>
+                <p style="color: #cbd5e1">All 9 planetary colors automatically transform to deep, distinct dark
+                    backgrounds with light accents in Dark Mode, maintaining traditional Vedic color associations.</p>
+            </div>
+        </section>
+
+        <!-- MCP Section -->
+        <section id="mcp" class="section">
+            <div class="section__header">
+                <h2 class="section__title">MCP Server</h2>
+                <p class="section__lead">Model Context Protocol server for AI agents to query design tokens. Works with
+                    Cursor, Claude Desktop, VS Code, Windsurf, and more.</p>
+            </div>
+
+            <div class="card">
+                <h3 class="card__title">Installation</h3>
+                <pre class="code-block"><code>npx @astrofusion/design-mcp-server start</code></pre>
+            </div>
+
+            <div class="card">
+                <h3 class="card__title">Configuration (mcp.json)</h3>
+                <pre class="code-block"><code>{
+  "astrofusion-design": {
+    "command": "npx",
+    "args": ["@astrofusion/design-mcp-server", "start"]
+  }
+}</code></pre>
+            </div>
+
+            <div class="card">
+                <h3 class="card__title">Available Tools</h3>
+                <div class="tool-list">
+                    <div class="tool-item">
+                        <code>get_component_prompt</code>
+                        <span>Get AI prompt for a specific component on a platform</span>
+                    </div>
+                    <div class="tool-item">
+                        <code>get_platform_context</code>
+                        <span>Get full system prompt for building UI on a platform</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add more sections as needed -->
+        <section id="typography" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Typography</h2>
+                <p class="section__lead">Typography guidelines for multi-language support including Devanagari.</p>
+            </div>
+            <div class="card">
+                <p>Content coming soon. View the full documentation at <a
+                        href="https://github.com/astro-fusion/af-design" target="_blank">GitHub</a>.</p>
+            </div>
+        </section>
+
+        <section id="tokens" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Design Tokens</h2>
+                <p class="section__lead">JSON-based design tokens for colors, typography, and spacing.</p>
+            </div>
+            <div class="card">
+                <a href="https://github.com/astro-fusion/af-design/tree/main/packages/core/tokens" target="_blank"
+                    class="btn btn--primary">View Tokens on GitHub</a>
+            </div>
+        </section>
+
+        <section id="icons" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Icons</h2>
+                <p class="section__lead">Iconography using Lucide React.</p>
+            </div>
+            <div class="card">
+                <p>We use <a href="https://lucide.dev" target="_blank">Lucide</a> icons throughout the design system.
+                </p>
+            </div>
+        </section>
+
+        <section id="theming" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Theming</h2>
+                <p class="section__lead">Complete theming with CSS variables and dark mode.</p>
+            </div>
+            <div class="card">
+                <p>Toggle the theme using the switch in the sidebar footer.</p>
+            </div>
+        </section>
+
+        <section id="layout" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Layout & Boxes</h2>
+                <p class="section__lead">Container components for consistent spacing.</p>
+            </div>
+            <div class="card">
+                <p>AFBox component with semantic variants (card, glass, planetary colors).</p>
+            </div>
+        </section>
+
+        <section id="forms" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Form Components</h2>
+                <p class="section__lead">Inputs, checkboxes, selects, and validation.</p>
+            </div>
+            <div class="card">
+                <p>Form components documentation coming soon.</p>
+            </div>
+        </section>
+
+        <section id="data-display" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Data Display</h2>
+                <p class="section__lead">Tables, badges, and key-value components.</p>
+            </div>
+            <div class="card">
+                <p>Data display components documentation coming soon.</p>
+            </div>
+        </section>
+
+        <section id="animation" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Animation</h2>
+                <p class="section__lead">Micro-interactions, loading states, and transitions.</p>
+            </div>
+            <div class="card">
+                <p>Animation guidelines coming soon.</p>
+            </div>
+        </section>
+
+        <section id="generative" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Generative UI (A2UI)</h2>
+                <p class="section__lead">JSON-driven rendering for AI agents to generate safe, native UI.</p>
+            </div>
+            <div class="card">
+                <p>Based on <a href="https://github.com/google/A2UI" target="_blank">Google A2UI</a>. Documentation
+                    coming soon.</p>
+            </div>
+        </section>
+
+        <section id="prompts" class="section">
+            <div class="section__header">
+                <h2 class="section__title">AI Prompt Templates</h2>
+                <p class="section__lead">Copy-ready prompts for generating UI with AI assistants.</p>
+            </div>
+
+            <!-- Platform Selector -->
+            <div class="platform-selector">
+                <button class="platform-btn platform-btn--active" data-platform="web">🌐 Web</button>
+                <button class="platform-btn" data-platform="react-native">📱 React Native</button>
+                <button class="platform-btn" data-platform="ios">🍎 iOS</button>
+                <button class="platform-btn" data-platform="android">🤖 Android</button>
+            </div>
+
+            <div class="prompt-types">
+                <div class="prompt-type-tabs">
+                    <button class="prompt-type-tab prompt-type-tab--active" data-type="simple">Simple</button>
+                    <button class="prompt-type-tab" data-type="full">Full (v0/Bolt)</button>
+                    <button class="prompt-type-tab" data-type="system">System Prompt</button>
+                </div>
+
+                <div class="prompt-card" data-type="simple">
+                    <div class="prompt-card__header">
                         <span>Simple Prompt</span>
-                        <button class="af-copy-btn" onclick="copyPromptBlock('simple')">Copy</button>
+                        <button class="btn btn--small" onclick="copyPrompt('simple')">Copy</button>
                     </div>
-                    <pre id="prompt-simple" class="af-prompt-content">User wants a 'Primary Button'.
-- Component: Primary Button
-- Import: import { AFButton } from '@astrofusion/design-system'
-- Usage: <AFButton variant="default">Label</AFButton>
-- Rules:
-  - Use for main call-to-action
-  - One primary button per section</pre>
+                    <pre id="prompt-simple" class="prompt-card__content"></pre>
                 </div>
 
-                <!-- Full Prompt (for v0/Bolt) -->
-                <div class="af-prompt-block" data-prompt-type="full" hidden>
-                    <div class="af-prompt-header">
+                <div class="prompt-card" data-type="full" hidden>
+                    <div class="prompt-card__header">
                         <span>Full Prompt (v0 / Bolt / Lovable)</span>
-                        <button class="af-copy-btn" onclick="copyPromptBlock('full')">Copy</button>
+                        <button class="btn btn--small" onclick="copyPrompt('full')">Copy</button>
                     </div>
-                    <pre id="prompt-full" class="af-prompt-content">## AstroFusion Design System — Button Component
-
-### Design Philosophy
-AstroFusion follows a "Cosmic" design language with deep purples, glass effects, and mystical aesthetics. Similar to shadcn/ui but tailored for astrology applications.
-
-### Component: Button
-- **Variants**: default (primary), secondary, glass, destructive, outline, ghost
-- **Sizes**: sm, md (default), lg
-- **Colors**: 
-  - Primary: #2f2a5c (cosmic-600)
-  - Glass: rgba(255, 255, 255, 0.1) with backdrop-blur
-
-### Usage
-```tsx
-import { AFButton } from '@astrofusion/design-system';
-
-<AFButton variant="default" size="md">
-  Click Me
-</AFButton>
-```
-
-### CSS Classes (for HTML)
-```html
-<button class="af-button af-button--primary af-button--md">
-  Click Me
-</button>
-```
-
-### Design Rules
-1. One primary button per section
-2. Use glass variant only on dark/gradient backgrounds
-3. Minimum touch target: 44px
-4. Always include hover/focus states
-
-### Source Repository
-https://github.com/astro-fusion/af-design/tree/main/packages/ui/components-web</pre>
+                    <pre id="prompt-full" class="prompt-card__content"></pre>
                 </div>
 
-                <!-- System Prompt (Platform-aware) -->
-                <div class="af-prompt-block" data-prompt-type="system" hidden>
-                    <div class="af-prompt-header">
+                <div class="prompt-card" data-type="system" hidden>
+                    <div class="prompt-card__header">
                         <span id="system-prompt-label">System Prompt (Web)</span>
-                        <button class="af-copy-btn" onclick="copyPromptBlock('system')">Copy</button>
+                        <button class="btn btn--small" onclick="copyPrompt('system')">Copy</button>
                     </div>
-                    <pre id="prompt-system" class="af-prompt-content"></pre>
-                </div>
-            </div>
-
-            <!-- Code Examples by Platform -->
-            <div class="af-code-section">
-                <h3>💻 Code Examples</h3>
-                <div id="code-block-buttons" class="af-code-block">
-                    <div class="af-code-header">
-                        <span id="code-label">HTML/CSS</span>
-                        <button class="af-copy-btn" onclick="copyCodeBlock()">Copy</button>
-                    </div>
-                    <pre id="code-content"><code></code></pre>
+                    <pre id="prompt-system" class="prompt-card__content"></pre>
                 </div>
             </div>
         </section>
 
-        <!-- Cards Section -->
-        <section id="cards" class="af-section" data-tab="cards" hidden>
-            <h2>🃏 Cards</h2>
-            <p>Container components with solid or glass styling.</p>
-
-            <div class="af-component-demo af-component-demo--dark">
-                <div class="af-card af-card--solid">
-                    <h4>Solid Card</h4>
-                    <p>Default card styling with shadow.</p>
-                </div>
-                <div class="af-card af-card--glass">
-                    <h4>Glass Card</h4>
-                    <p>Frosted glass effect.</p>
-                </div>
-            </div>
-
-            <div class="af-component-card">
-                <h3>Card Component</h3>
-                <div class="af-component-row">
-                    <div class="af-component-row__left">
-                        <span class="af-tag">af-card--solid</span>
-                        <span class="af-tag af-tag--glass">af-card--glass</span>
-                    </div>
-                    <div class="af-component-row__actions">
-                        <button class="af-copy-icon" data-component="card" title="Copy AI Prompt">📋</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tokens Section -->
-        <section id="tokens" class="af-section" data-tab="tokens" hidden>
-            <h2>🎨 Design Tokens</h2>
-            <p>CSS Custom Properties for colors, typography, and spacing.</p>
-
-            <div class="af-token-grid">
-                <div class="af-token-card">
-                    <h4>Colors</h4>
-                    <div class="af-color-swatch" style="--color: var(--color-cosmic-900)"><span>cosmic-900</span></div>
-                    <div class="af-color-swatch" style="--color: var(--color-cosmic-600)"><span>cosmic-600</span></div>
-                </div>
-                <div class="af-token-card">
-                    <h4>Spacing</h4>
-                    <code>--space-1: 0.25rem</code><br>
-                    <code>--space-4: 1rem</code><br>
-                    <code>--space-8: 2rem</code>
-                </div>
-            </div>
-        </section>
     </main>
-
-    <footer class="af-footer">
-        <p>MIT License © 2024 AstroFusion</p>
-        <p><a href="https://github.com/astro-fusion/af-design">GitHub Repository</a></p>
-    </footer>
 
     <script src="scripts/prompts.js"></script>
     <script src="scripts/main.js"></script>
