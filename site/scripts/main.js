@@ -115,41 +115,62 @@ function updateActiveNavLink(id) {
 }
 
 function scrollToSection(id) {
+    if (!id) return;
     window.isNavigating = true;
+    
+    // 1. Hide all sections, Show Target
+    document.querySelectorAll('.section').forEach(sec => {
+        sec.classList.remove('section--active');
+    });
+    
     const section = document.getElementById(id);
     if (section) {
-        updateActiveNavLink(id);
-        history.pushState(null, null, `#${id}`);
+        section.classList.add('section--active');
         
-        // Scroll with offset for header
-        const headerOffset = 80;
-        const elementPosition = section.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
+        // 2. Update Nav State
+        updateActiveNavLink(id);
+        
+        // 3. Update URL (support both hash for anchor and tab param for compatibility)
+        const url = new URL(window.location);
+        url.hash = id;
+        url.searchParams.set('tab', id);
+        history.pushState(null, null, url);
+        
+        // 4. Scroll to top of content
         window.scrollTo({
-            top: offsetPosition,
+            top: 0,
             behavior: "smooth"
         });
 
         // Close mobile menu if open
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebar-overlay');
-        sidebar.classList.remove('sidebar--active');
-        overlay.classList.remove('sidebar-overlay--active');
+        if (sidebar) sidebar.classList.remove('sidebar--active');
+        if (overlay) overlay.classList.remove('sidebar-overlay--active');
 
-        // Reset navigation lock after scroll
+        // Reset navigation lock
         setTimeout(() => {
             window.isNavigating = false;
-        }, 1000);
+        }, 500);
     }
 }
 
 function handleInitialRoute() {
+    // Priority: 1. Hash (#colors), 2. Search Param (?tab=colors), 3. Default (overview)
+    let target = 'overview';
+    
     const hash = window.location.hash.substring(1);
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    
     if (hash) {
-        // Build in a slight delay to ensure layout is stable
-        setTimeout(() => scrollToSection(hash), 100);
+        target = hash;
+    } else if (tabParam) {
+        target = tabParam;
     }
+    
+    // Give a small buffer for content to settle
+    setTimeout(() => scrollToSection(target), 100);
 }
 
 
