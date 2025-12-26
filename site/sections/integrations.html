@@ -1,0 +1,115 @@
+<div class="section__header">
+    <div class="flex items-center gap-3 justify-center lg:justify-start">
+        <h2 class="section__title">Integrations & Architecture</h2>
+    </div>
+    <p class="section__lead">How to orchestrate AI Agents with AstroFusion: The "Renderer" vs "Orchestrator" pattern.
+    </p>
+</div>
+
+<div class="space-y-12">
+    <!-- Architecture Diagram / Concept -->
+    <div class="card card--gradient p-8 text-center space-y-6">
+        <h3 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600">The
+            Agentic Stack</h3>
+        <p class="max-w-2xl mx-auto text-muted-foreground">AstroFusion is designed to be the <strong>Interface
+                Layer</strong> (Renderer) for your AI Agents, while tools like CopilotKit serve as the
+            <strong>Orchestration Layer</strong> (Brain).</p>
+
+        <div class="grid md:grid-cols-3 gap-6 mt-8 text-left">
+            <!-- Brain -->
+            <div
+                class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-border shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-2xl">🧠</span>
+                    <h4 class="font-bold">Orchestrator</h4>
+                </div>
+                <p class="text-xs font-bold text-blue-500 mb-2 uppercase tracking-wide">CopilotKit / LangChain</p>
+                <p class="text-sm text-muted-foreground">Manages state, context, and LLM communication. Decides
+                    <em>what</em> to show.</p>
+            </div>
+
+            <!-- Arrow -->
+            <div class="hidden md:flex items-center justify-center">
+                <div class="text-4xl text-muted-foreground/30">➔</div>
+            </div>
+
+            <!-- Interface -->
+            <div
+                class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-border shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-2xl">🎨</span>
+                    <h4 class="font-bold">Renderer</h4>
+                </div>
+                <p class="text-xs font-bold text-purple-500 mb-2 uppercase tracking-wide">AstroFusion / A2UI</p>
+                <p class="text-sm text-muted-foreground">Generates the actual UI components based on the Agent's intent.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Grid -->
+    <div class="grid lg:grid-cols-2 gap-8">
+        <!-- A2UI -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold flex items-center gap-2">
+                <span
+                    class="w-8 h-8 rounded bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300">A</span>
+                A2UI (Google)
+            </h3>
+            <div class="card card--bordered p-6 h-full">
+                <p class="font-medium mb-4">Server-Driven UI from Agents</p>
+                <div class="prose prose-sm text-muted-foreground space-y-4">
+                    <p>Use A2UI when you want the Agent to <strong>construct interfaces on the fly</strong>. The Agent
+                        sends a JSON payload describing the UI tree, and AstroFusion renders it using native components.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Dynamic forms</li>
+                        <li>Generative dashboards</li>
+                        <li>Adaptive layouts</li>
+                    </ul>
+                    <div class="bg-muted p-3 rounded text-xs font-mono border border-border">
+                        "user_intent": "show_chart",<br>
+                        "ui_response": { "type": "chart", ... }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CopilotKit -->
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold flex items-center gap-2">
+                <span
+                    class="w-8 h-8 rounded bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300">C</span>
+                CopilotKit
+            </h3>
+            <div class="card card--bordered p-6 h-full">
+                <p class="font-medium mb-4">Context-Aware Copilots</p>
+                <div class="prose prose-sm text-muted-foreground space-y-4">
+                    <p>Use CopilotKit when you want to add an <strong>embedded AI chatbot</strong> that understands your
+                        app's state (frontend & backend). It handles the "Chat" capability.</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>In-app assistance</li>
+                        <li>State mutation ("Update row 5")</li>
+                        <li>RAG (Resource Augmented Generation)</li>
+                    </ul>
+                    <div class="bg-muted p-3 rounded text-xs font-mono border border-border">
+                        useCopilotReadable({ ... })<br>
+                        useCopilotAction({ ... })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Integration Strategy -->
+    <div class="card p-8 border-l-4 border-indigo-500 bg-indigo-50 dark:bg-indigo-950/20">
+        <h3 class="text-lg font-bold text-indigo-900 dark:text-indigo-100 mb-2">The Winning Strategy: Combine Them</h3>
+        <p class="text-indigo-800 dark:text-indigo-200">
+            Don't choose one. Use <strong>CopilotKit</strong> to manage the chat widget and application context reading.
+            Then, instruct CopilotKit's LLM to output <strong>A2UI JSON</strong> when it needs to render a custom tool
+            or widget in the chat stream.
+        </p>
+    </div>
+</div>

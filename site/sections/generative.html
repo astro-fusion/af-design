@@ -92,4 +92,111 @@
             </div>
         </div>
     </div>
+    <!-- Complex Form Generation (A2UI Deep Dive) -->
+    <div class="card card--bordered p-8 space-y-6">
+        <div class="section__header mb-6">
+            <h3 class="card__title">Deep Dive: Streaming Form Generation</h3>
+            <p class="section__desc">See how an Agent builds a complex form field-by-field using A2UI.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Left: The Prompt & Stream -->
+            <div class="space-y-4">
+                <div class="bg-muted p-4 rounded-lg">
+                    <span class="text-xs font-bold text-primary uppercase tracking-wider">User Prompt</span>
+                    <p class="text-sm mt-1 font-medium">"Create a user profile settings form with avatar upload, bio,
+                        and notification preferences."</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute top-2 right-2 flex gap-1">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-xs text-green-500 font-mono">STREAMING</span>
+                    </div>
+                    <pre class="bg-slate-950 text-slate-50 p-4 rounded-lg text-xs font-mono overflow-auto h-[350px]"><code>{
+  "type": "form",
+  "children": [
+    {
+      "type": "section",
+      "props": { "title": "Profile" },
+      "children": [
+        { 
+          "type": "upload", 
+          "props": { "label": "Avatar", "accept": "image/*" } 
+        },
+        { 
+          "type": "textarea", 
+          "props": { "label": "Bio", "rows": 4 } 
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "props": { "title": "Notifications" },
+      "children": [
+        { 
+          "type": "switch", 
+          "props": { "label": "Email Alerts", "defaultChecked": true } 
+        },
+        { 
+          "type": "switch", 
+          "props": { "label": "SMS Alerts" } 
+        }
+      ]
+    },
+    {
+        "type": "button",
+        "props": { "variant": "primary", "label": "Save Changes" }
+    }
+  ]
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Right: The Rendered UI -->
+            <div class="border rounded-xl bg-muted/10 p-6">
+                <!-- Mock Rendered Form -->
+                <div class="af-card p-6 space-y-6 bg-white dark:bg-slate-900 shadow-sm">
+                    <h3 class="text-lg font-semibold border-b pb-2">Profile</h3>
+
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">Avatar</label>
+                            <div
+                                class="border-2 border-dashed border-muted rounded-lg p-8 text-center hover:bg-muted/50 transition-colors cursor-pointer">
+                                <span class="text-2xl">📷</span>
+                                <p class="text-xs text-muted-foreground mt-2">Click to upload image</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">Bio</label>
+                            <textarea class="af-input min-h-[100px]" placeholder="Tell us about yourself..."></textarea>
+                        </div>
+                    </div>
+
+                    <h3 class="text-lg font-semibold border-b pb-2 pt-4">Notifications</h3>
+
+                    <div class="space-y-3">
+                        <label class="flex items-center justify-between cursor-pointer">
+                            <span class="text-sm">Email Alerts</span>
+                            <div class="w-10 h-6 bg-primary rounded-full relative">
+                                <div class="w-4 h-4 bg-white rounded-full absolute top-1 right-1 shadow-sm"></div>
+                            </div>
+                        </label>
+                        <label class="flex items-center justify-between cursor-pointer">
+                            <span class="text-sm">SMS Alerts</span>
+                            <div class="w-10 h-6 bg-muted rounded-full relative">
+                                <div class="w-4 h-4 bg-white rounded-full absolute top-1 left-1 shadow-sm"></div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="pt-4">
+                        <button class="af-button af-button--primary w-full">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

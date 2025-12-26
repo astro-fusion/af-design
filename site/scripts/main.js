@@ -16,6 +16,7 @@ async function initApp() {
     initPromptSystem();
     initTokenTabs();
     initAnimationTriggers();
+    initSourceViewers();
     
     // 3. Handle initial route
     handleInitialRoute();
@@ -28,7 +29,7 @@ async function loadAllSections() {
     const sections = [
         'overview', 'typography', 'colors', 'tokens', 'icons', 
         'theming', 'buttons', 'layout', 'forms', 'data-display', 
-        'animation', 'generative', 'mcp', 'prompts'
+        'animation', 'generative', 'mcp', 'integrations', 'prompts'
     ];
 
     const loadingIndicator = document.getElementById('loading-indicator');
@@ -388,7 +389,55 @@ function initTokenTabs() {
         });
     });
 }
+// --- Source Viewer ---
 
+function initSourceViewers() {
+    // Delegate click for platform tabs (since they might be loaded dynamically)
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('platform-tab')) {
+            const btn = e.target;
+            const container = btn.closest('.source-viewer');
+            const platform = btn.dataset.platform;
+            
+            // 1. Update active tab state
+            container.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('platform-tab--active'));
+            btn.classList.add('platform-tab--active');
+            
+            // 2. Identify component type from container ID or title
+            // Pattern: id="input-platform-tabs" -> component="input"
+            // Pattern: id="button-platform-tabs" -> component="button"
+            const tabsId = container.querySelector('.platform-tabs').id;
+            const component = tabsId.replace('-platform-tabs', '');
+            
+            // 3. Update Content
+            updateSourceContent(container, component, platform);
+        }
+    });
+
+    // Initialize viewers when sections load
+    // This is handled by the initial load, but we can also trigger a refresh if needed
+}
+
+function updateSourceContent(container, component, platform) {
+    const codeBlock = container.querySelector('code');
+    let content = '';
+
+    if (platform === 'agent') {
+        // Fetch JSON Schema
+        const schema = window.AGENT_SCHEMAS?.[component];
+        content = schema ? JSON.stringify(schema, null, 2) : '// Schema not defined';
+    } else {
+        // Fetch Code Example (utilizing code from prompts.js or a new object)
+        // We can reuse CODE_EXAMPLES from prompts.js if available
+        if (typeof window.PROMPTS !== 'undefined' && window.PROMPTS.CODE_EXAMPLES) {
+            content = window.PROMPTS.CODE_EXAMPLES[component]?.[platform] || '// Code example not available';
+        } else {
+            content = '// Loading code...';
+        }
+    }
+
+    codeBlock.textContent = content;
+}
 // --- Animation Triggers ---
 
 function initAnimationTriggers() {

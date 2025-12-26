@@ -192,4 +192,40 @@
             <button class="af-button af-button--primary">Generate Kundali</button>
         </div>
     </div>
+
+    <!-- Specs -->
+    <div class="specs">
+        <div class="specs__row">
+            <span class="specs__label">Web</span>
+            <code class="specs__value">packages/ui/components-web/src/Input.tsx</code>
+        </div>
+        <div class="specs__row">
+            <span class="specs__label">Native</span>
+            <code class="specs__value">packages/ui/components-native/src/Input.tsx</code>
+        </div>
+        <div class="specs__row">
+            <span class="specs__label">Usage</span>
+            <code class="specs__value">&lt;AFInput label="Email" placeholder="user@example.com" /&gt;</code>
+        </div>
+    </div>
+
+    <!-- Platform Code Viewer -->
+    <div class="source-viewer">
+        <div class="source-viewer__header">
+            <span class="source-viewer__title">💻 AFInput Source</span>
+            <div class="platform-tabs" id="input-platform-tabs">
+                <button class="platform-tab platform-tab--active" data-platform="web">Web</button>
+                <button class="platform-tab" data-platform="react-native">React Native</button>
+                <button class="platform-tab" data-platform="agent">Agent Mode (JSON)</button>
+            </div>
+        </div>
+        <div class="source-viewer__content" id="input-source-content">
+            <pre><code id="input-source-code" class="language-json"></code></pre>
+        </div>
+        <div class="source-viewer__footer">
+            <button class="btn btn--small" onclick="copyCurrentCode()">📋 Copy Code</button>
+            <a href="https://github.com/astro-fusion/af-design/tree/main/packages/ui/components-web" target="_blank"
+                class="btn btn--small btn--outline">View on GitHub</a>
+        </div>
+    </div>
 </div>
