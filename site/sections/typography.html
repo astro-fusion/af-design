@@ -136,4 +136,21 @@
             </div>
         </div>
     </div>
+    <!-- Platform Code Viewer -->
+    <div class="source-viewer">
+        <div class="source-viewer__header">
+            <span class="source-viewer__title">💻 Typography Source</span>
+            <div class="platform-tabs" id="typography-platform-tabs">
+                <button class="platform-tab platform-tab--active" data-platform="web">Web</button>
+                <button class="platform-tab" data-platform="react-native">React Native</button>
+                <button class="platform-tab" data-platform="agent">Agent Mode (JSON)</button>
+            </div>
+        </div>
+        <div class="source-viewer__content" id="typography-source-content">
+            <pre><code id="typography-source-code" class="language-json"></code></pre>
+        </div>
+        <div class="source-viewer__footer">
+            <button class="btn btn--small" onclick="copyCurrentCode()">📋 Copy Code</button>
+        </div>
+    </div>
 </div>

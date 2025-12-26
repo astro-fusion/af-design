@@ -13,7 +13,8 @@
             Agentic Stack</h3>
         <p class="max-w-2xl mx-auto text-muted-foreground">AstroFusion is designed to be the <strong>Interface
                 Layer</strong> (Renderer) for your AI Agents, while tools like CopilotKit serve as the
-            <strong>Orchestration Layer</strong> (Brain).</p>
+            <strong>Orchestration Layer</strong> (Brain).
+        </p>
 
         <div class="grid md:grid-cols-3 gap-6 mt-8 text-left">
             <!-- Brain -->
@@ -26,7 +27,8 @@
                 </div>
                 <p class="text-xs font-bold text-blue-500 mb-2 uppercase tracking-wide">CopilotKit / LangChain</p>
                 <p class="text-sm text-muted-foreground">Manages state, context, and LLM communication. Decides
-                    <em>what</em> to show.</p>
+                    <em>what</em> to show.
+                </p>
             </div>
 
             <!-- Arrow -->
@@ -111,5 +113,75 @@
             Then, instruct CopilotKit's LLM to output <strong>A2UI JSON</strong> when it needs to render a custom tool
             or widget in the chat stream.
         </p>
+    </div>
+    <!-- Real-World Example -->
+    <div class="space-y-6">
+        <div class="section__header">
+            <h3 class="section__title">Real-World Application</h3>
+            <p class="section__desc">See how `useCopilotAction` can drive AstroFusion UI generation.</p>
+        </div>
+
+        <div class="card card--bordered p-0 overflow-hidden">
+            <div class="bg-slate-950 text-slate-50 p-4 border-b border-white/10 flex justify-between items-center">
+                <span class="text-xs font-mono text-muted-foreground">useCopilotAction Example</span>
+                <span class="text-xs font-bold text-blue-400">Next.js + CopilotKit</span>
+            </div>
+            <div class="p-6 bg-slate-900 overflow-x-auto">
+                <pre><code class="language-typescript text-sm text-blue-100">import { useCopilotAction } from "@copilotkit/react-core";
+import { AFButton, AFCard } from "@astrofusion/ui";
+
+export function GenerativeAssistant() {
+  // 1. Define an action that the Agent can call
+  useCopilotAction({
+    name: "generateUI",
+    description: "Generates a UI component based on user request",
+    parameters: [
+      {
+        name: "componentType",
+        type: "string",
+        description: "The type of component (form, card, chart)",
+        required: true,
+      },
+      {
+        name: "props",
+        type: "object",
+        description: "The JSON props for the component (A2UI Schema)",
+        required: true,
+      }
+    ],
+    // 2. Handle the Agent's output
+    handler: async ({ componentType, props }) => {
+      // The Agent decided to render a UI component!
+      // We pass the generated 'props' directly to our AstroFusion component.
+      
+      return renderToStream(
+        <AFCard className="p-6">
+           <A2UIRenderer type={componentType} props={props} />
+        </AFCard>
+      );
+    },
+  });
+
+  return (
+    <div className="chat-interface">
+       {/* The CopilotWindow will now use AstroFusion components 
+           whenever the 'generateUI' tool is called. */}
+    </div>
+  );
+}</code></pre>
+            </div>
+            <div class="p-4 bg-muted border-t border-border flex gap-4 items-start">
+                <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-1">💡</div>
+                <div>
+                    <h4 class="text-sm font-bold">Why this works</h4>
+                    <p class="text-sm text-muted-foreground mt-1">
+                        CopilotKit handles the <strong>intent classification</strong> ("User wants a form"). It then
+                        calls your defined action with structured JSON. AstroFusion's <code
+                            class="text-xs bg-slate-200 dark:bg-slate-800 px-1 rounded">A2UIRenderer</code> takes that
+                        JSON and renders the beautiful, accessible native components you see in this docs site.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
