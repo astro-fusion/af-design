@@ -1,6 +1,6 @@
 /**
  * AstroFusion Design System - Site Styles
- * Styles for the documentation site itself
+ * Enhanced to match localhost:3000/design
  */
 
 * {
@@ -46,48 +46,139 @@ body {
   color: var(--color-starlight-200);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
 }
 
-.af-nav__links a:hover {
+.af-nav__links a:hover,
+.af-nav__links a.af-nav__link--active {
   color: var(--color-starlight-100);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Hero */
-.af-hero {
+/* Hero (Compact) */
+.af-hero--compact {
+  padding: var(--space-8);
   text-align: center;
-  padding: var(--space-12) var(--space-8);
-  max-width: 800px;
-  margin: 0 auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.af-hero h1 {
-  font-size: 3rem;
-  margin: 0 0 var(--space-4) 0;
+.af-hero--compact h1 {
+  font-size: 2rem;
+  margin: 0 0 var(--space-2) 0;
   background: linear-gradient(90deg, #fff, #a5b4fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.af-hero__subtitle {
-  font-size: var(--font-size-xl);
+.af-hero--compact .af-hero__subtitle {
+  font-size: var(--font-size-base);
   color: var(--color-starlight-300);
-  margin: 0 0 var(--space-8) 0;
+  margin: 0 0 var(--space-6) 0;
 }
 
-.af-hero__actions {
+/* Platform Selector */
+.af-platform-selector {
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-2);
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Sections */
-.af-section {
+.af-platform-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-starlight-300);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  transition: all 0.2s;
+}
+
+.af-platform-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-starlight-100);
+}
+
+.af-platform-btn--active {
+  background: var(--color-cosmic-600);
+  border-color: var(--color-cosmic-600);
+  color: var(--color-starlight-100);
+}
+
+/* Main Content */
+.af-main {
   max-width: 1000px;
   margin: 0 auto;
-  padding: var(--space-12) var(--space-8);
+  padding: var(--space-4);
+}
+
+/* Prompt Display (matches localhost:3000/design) */
+.af-prompt-display {
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+}
+
+.af-prompt-display__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.af-prompt-display__header span {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-starlight-300);
+}
+
+.af-prompt-display__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.af-prompt-display__actions button {
+  background: transparent;
+  border: none;
+  color: var(--color-starlight-300);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  padding: var(--space-1);
+  transition: color 0.2s;
+}
+
+.af-prompt-display__actions button:hover {
+  color: var(--color-starlight-100);
+}
+
+.af-prompt-display__content {
+  margin: 0;
+  padding: var(--space-3);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-starlight-300);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.af-prompt-display__content--editing {
+  background: rgba(255, 255, 255, 0.05);
+  outline: 1px solid var(--color-cosmic-600);
+}
+
+/* Sections */
+.af-section {
+  padding: var(--space-8) 0;
 }
 
 .af-section h2 {
@@ -99,48 +190,14 @@ body {
 
 .af-section h3 {
   font-size: var(--font-size-lg);
-  margin: var(--space-8) 0 var(--space-4) 0;
+  margin: var(--space-6) 0 var(--space-4) 0;
   color: var(--color-starlight-200);
 }
 
-/* Color Grid */
-.af-color-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--space-4);
-}
-
-.af-color-swatch {
-  background: var(--color);
-  padding: var(--space-8) var(--space-4);
-  border-radius: var(--radius-lg);
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.af-color-swatch span {
-  font-size: var(--font-size-sm);
-  font-family: var(--font-mono);
-}
-
-/* Spacing Demo */
-.af-spacing-demo {
-  display: flex;
-  gap: var(--space-4);
-  align-items: flex-end;
-}
-
-.af-spacing-box {
-  width: var(--size);
-  height: var(--size);
-  background: var(--color-cosmic-600);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-sm);
-  min-width: 24px;
-  min-height: 24px;
+.af-section h4 {
+  font-size: var(--font-size-base);
+  margin: var(--space-4) 0 var(--space-2) 0;
+  color: var(--color-starlight-300);
 }
 
 /* Component Card */
@@ -149,18 +206,75 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
   padding: var(--space-6);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
-.af-component-card h3 {
-  margin-top: 0;
+/* Component Row (like ButtonsSection) */
+.af-component-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-3);
+}
+
+.af-component-row--glass {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+}
+
+.af-component-row__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.af-component-row__label {
+  font-size: var(--font-size-sm);
+}
+
+.af-component-row__title {
+  font-weight: 500;
   color: var(--color-starlight-100);
 }
 
+.af-component-row__desc {
+  color: var(--color-starlight-300);
+  margin-left: var(--space-2);
+}
+
+.af-component-row__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* Copy Icon */
+.af-copy-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  color: var(--color-starlight-300);
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  transition: all 0.2s;
+}
+
+.af-copy-icon:hover {
+  color: var(--color-starlight-100);
+  transform: scale(1.1);
+}
+
+/* Component Demo */
 .af-component-demo {
   display: flex;
   gap: var(--space-4);
-  margin: var(--space-6) 0;
+  margin: var(--space-4) 0;
   flex-wrap: wrap;
 }
 
@@ -168,21 +282,31 @@ body {
   background: var(--color-cosmic-900);
   padding: var(--space-6);
   border-radius: var(--radius-lg);
-  margin: var(--space-6) 0;
 }
 
-/* Platform Tabs */
-.af-platform-tabs {
+/* Prompt Types Section */
+.af-prompt-types {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: var(--radius-xl);
+}
+
+.af-prompt-types h3 {
+  margin-top: 0;
+}
+
+.af-prompt-tabs {
   display: flex;
   gap: var(--space-2);
   margin-bottom: var(--space-4);
-  flex-wrap: wrap;
 }
 
-.af-tab {
+.af-prompt-tab {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--color-starlight-300);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #c4b5fd;
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -191,22 +315,62 @@ body {
   transition: all 0.2s;
 }
 
-.af-tab:hover {
-  background: rgba(255, 255, 255, 0.05);
+.af-prompt-tab:hover {
+  background: rgba(139, 92, 246, 0.1);
 }
 
-.af-tab--active {
-  background: var(--color-cosmic-600);
-  border-color: var(--color-cosmic-600);
-  color: var(--color-starlight-100);
+.af-prompt-tab--active {
+  background: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.5);
+  color: #e0e7ff;
 }
 
-/* Code Block */
+/* Prompt Block */
+.af-prompt-block {
+  background: rgba(15, 12, 41, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+
+.af-prompt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(139, 92, 246, 0.2);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.af-prompt-header span {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: #c4b5fd;
+}
+
+.af-prompt-content {
+  margin: 0;
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: #e0e7ff;
+  white-space: pre-wrap;
+  line-height: 1.8;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Code Section */
+.af-code-section {
+  margin-top: var(--space-6);
+}
+
 .af-code-block {
   background: var(--color-cosmic-900);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: var(--space-4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .af-code-header {
@@ -251,39 +415,64 @@ body {
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
   color: var(--color-starlight-200);
-}
-
-/* Prompt Card */
-.af-prompt-card {
-  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: var(--radius-xl);
-  margin-bottom: var(--space-6);
-  overflow: hidden;
-}
-
-.af-prompt-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-3) var(--space-4);
-  background: rgba(139, 92, 246, 0.2);
-  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
-}
-
-.af-prompt-header span {
-  font-weight: 600;
-  color: #c4b5fd;
-}
-
-.af-prompt-content {
-  margin: 0;
-  padding: var(--space-4);
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
-  color: #e0e7ff;
   white-space: pre-wrap;
-  line-height: 1.8;
+}
+
+/* Tags */
+.af-tag {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  color: var(--color-starlight-200);
+  margin-right: var(--space-2);
+}
+
+.af-tag--glass {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(8px);
+}
+
+/* Token Grid */
+.af-token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-4);
+}
+
+.af-token-card {
+  background: var(--color-surface-glass);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.af-token-card h4 {
+  margin-top: 0;
+  color: var(--color-starlight-100);
+}
+
+.af-token-card code {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-starlight-300);
+  margin-bottom: var(--space-1);
+}
+
+/* Color Swatches */
+.af-color-swatch {
+  background: var(--color);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+}
+
+.af-color-swatch span {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
 }
 
 /* Footer */
@@ -292,6 +481,7 @@ body {
   padding: var(--space-8);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--color-starlight-300);
+  margin-top: var(--space-8);
 }
 
 .af-footer a {
@@ -305,11 +495,27 @@ body {
     gap: var(--space-4);
   }
 
-  .af-hero h1 {
-    font-size: 2rem;
+  .af-nav__links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .af-section {
-    padding: var(--space-8) var(--space-4);
+  .af-component-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .af-component-row__actions {
+    align-self: flex-end;
+  }
+
+  .af-platform-selector {
+    gap: var(--space-1);
+  }
+
+  .af-platform-btn {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
   }
 }

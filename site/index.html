@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,225 +10,257 @@
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/site.css">
 </head>
+
 <body>
     <nav class="af-nav">
         <div class="af-nav__logo">🌌 AstroFusion Design</div>
         <div class="af-nav__links">
-            <a href="#tokens">Tokens</a>
-            <a href="#components">Components</a>
-            <a href="#ai">AI Prompts</a>
+            <a href="#buttons" data-tab="buttons">Buttons</a>
+            <a href="#cards" data-tab="cards">Cards</a>
+            <a href="#tokens" data-tab="tokens">Tokens</a>
             <a href="https://github.com/astro-fusion/af-design" target="_blank">GitHub</a>
         </div>
     </nav>
 
-    <header class="af-hero">
+    <header class="af-hero af-hero--compact">
         <h1>AstroFusion Design System</h1>
         <p class="af-hero__subtitle">The LLM-First Design System. Built for Humans & Agents.</p>
-        <div class="af-hero__actions">
-            <a href="#components" class="af-button af-button--primary af-button--lg">View Components</a>
-            <a href="#ai" class="af-button af-button--glass af-button--lg">Copy AI Prompts</a>
+
+        <!-- Platform Selector (syncs with URL) -->
+        <div class="af-platform-selector" id="platform-selector">
+            <button class="af-platform-btn" data-platform="web">🌐 Web</button>
+            <button class="af-platform-btn" data-platform="react-native">📱 React Native</button>
+            <button class="af-platform-btn" data-platform="ios">🍎 iOS</button>
+            <button class="af-platform-btn" data-platform="android">🤖 Android</button>
         </div>
     </header>
 
-    <main>
-        <!-- Tokens Section -->
-        <section id="tokens" class="af-section">
-            <h2>🎨 Design Tokens</h2>
-            <p>Single source of truth for colors, typography, and spacing.</p>
-            
-            <h3>Colors</h3>
-            <div class="af-color-grid">
-                <div class="af-color-swatch" style="--color: var(--color-cosmic-900)">
-                    <span>cosmic-900</span>
-                </div>
-                <div class="af-color-swatch" style="--color: var(--color-cosmic-800)">
-                    <span>cosmic-800</span>
-                </div>
-                <div class="af-color-swatch" style="--color: var(--color-cosmic-700)">
-                    <span>cosmic-700</span>
-                </div>
-                <div class="af-color-swatch" style="--color: var(--color-cosmic-600)">
-                    <span>cosmic-600</span>
+    <main class="af-main">
+        <!-- AI Prompt Display Box (like in localhost:3000/design) -->
+        <div id="prompt-display" class="af-prompt-display" hidden>
+            <div class="af-prompt-display__header">
+                <span>AI Prompt:</span>
+                <div class="af-prompt-display__actions">
+                    <button id="edit-prompt" title="Edit prompt">✏️</button>
+                    <button id="copy-current-prompt" title="Copy to clipboard">📋</button>
+                    <button id="clear-prompt" title="Clear">✕</button>
                 </div>
             </div>
+            <pre id="prompt-content" class="af-prompt-display__content"></pre>
+        </div>
 
-            <h3>Spacing Scale</h3>
-            <div class="af-spacing-demo">
-                <div class="af-spacing-box" style="--size: var(--space-1)">1</div>
-                <div class="af-spacing-box" style="--size: var(--space-2)">2</div>
-                <div class="af-spacing-box" style="--size: var(--space-4)">4</div>
-                <div class="af-spacing-box" style="--size: var(--space-6)">6</div>
-                <div class="af-spacing-box" style="--size: var(--space-8)">8</div>
-            </div>
-        </section>
+        <!-- Buttons Section -->
+        <section id="buttons" class="af-section" data-tab="buttons">
+            <h2>🎯 Buttons</h2>
+            <p>Interactive elements for triggering actions. Supports multiple variants and sizes.</p>
 
-        <!-- Components Section -->
-        <section id="components" class="af-section">
-            <h2>🧩 Components</h2>
-            
-            <!-- Button Component -->
             <div class="af-component-card">
-                <h3>Button</h3>
-                <p>A versatile button with multiple variants and sizes.</p>
-                
-                <div class="af-component-demo">
-                    <button class="af-button af-button--primary">Primary</button>
-                    <button class="af-button af-button--secondary">Secondary</button>
-                    <button class="af-button af-button--glass">Glass</button>
+                <h3>Variants</h3>
+
+                <!-- Primary Button Row -->
+                <div class="af-component-row">
+                    <div class="af-component-row__left">
+                        <button class="af-button af-button--primary">Default</button>
+                        <div class="af-component-row__label">
+                            <span class="af-component-row__title">Primary Action</span>
+                            <span class="af-component-row__desc">— Main call-to-action</span>
+                        </div>
+                    </div>
+                    <div class="af-component-row__actions">
+                        <button class="af-copy-icon" data-component="button-primary" title="Copy AI Prompt">📋</button>
+                    </div>
                 </div>
 
+                <!-- Secondary Button Row -->
+                <div class="af-component-row">
+                    <div class="af-component-row__left">
+                        <button class="af-button af-button--secondary">Secondary</button>
+                        <div class="af-component-row__label">
+                            <span class="af-component-row__title">Alternative</span>
+                            <span class="af-component-row__desc">— Less emphasis</span>
+                        </div>
+                    </div>
+                    <div class="af-component-row__actions">
+                        <button class="af-copy-icon" data-component="button-secondary"
+                            title="Copy AI Prompt">📋</button>
+                    </div>
+                </div>
+
+                <!-- Glass Button Row -->
+                <div class="af-component-row af-component-row--glass">
+                    <div class="af-component-row__left">
+                        <button class="af-button af-button--glass">Glass</button>
+                        <div class="af-component-row__label">
+                            <span class="af-component-row__title" style="color: #fff">Glassmorphism</span>
+                            <span class="af-component-row__desc" style="color: rgba(255,255,255,0.7)">— For
+                                dark/gradient backgrounds</span>
+                        </div>
+                    </div>
+                    <div class="af-component-row__actions">
+                        <button class="af-copy-icon" data-component="button-glass" title="Copy AI Prompt">📋</button>
+                    </div>
+                </div>
+
+                <!-- Size Demo -->
+                <h4>Sizes</h4>
                 <div class="af-component-demo">
                     <button class="af-button af-button--primary af-button--sm">Small</button>
                     <button class="af-button af-button--primary af-button--md">Medium</button>
                     <button class="af-button af-button--primary af-button--lg">Large</button>
                 </div>
+            </div>
 
-                <!-- Platform Tabs -->
-                <div class="af-platform-tabs">
-                    <button class="af-tab af-tab--active" data-platform="html">HTML/CSS</button>
-                    <button class="af-tab" data-platform="react">React</button>
-                    <button class="af-tab" data-platform="rn">React Native</button>
-                    <button class="af-tab" data-platform="swift">SwiftUI</button>
-                    <button class="af-tab" data-platform="kotlin">Compose</button>
+            <!-- Prompt Types Section -->
+            <div class="af-prompt-types">
+                <h3>📋 AI Prompt Types</h3>
+                <p>Choose the prompt format that best suits your AI workflow:</p>
+
+                <div class="af-prompt-tabs">
+                    <button class="af-prompt-tab af-prompt-tab--active" data-prompt-type="simple">Simple</button>
+                    <button class="af-prompt-tab" data-prompt-type="full">Full (v0/Bolt)</button>
+                    <button class="af-prompt-tab" data-prompt-type="system">System Prompt</button>
                 </div>
 
-                <div class="af-code-block" data-platform="html">
-                    <div class="af-code-header">
-                        <span>HTML</span>
-                        <button class="af-copy-btn" onclick="copyCode(this)">Copy</button>
+                <!-- Simple Prompt -->
+                <div class="af-prompt-block" data-prompt-type="simple">
+                    <div class="af-prompt-header">
+                        <span>Simple Prompt</span>
+                        <button class="af-copy-btn" onclick="copyPromptBlock('simple')">Copy</button>
                     </div>
-                    <pre><code>&lt;button class="af-button af-button--primary"&gt;
+                    <pre id="prompt-simple" class="af-prompt-content">User wants a 'Primary Button'.
+- Component: Primary Button
+- Import: import { AFButton } from '@astrofusion/design-system'
+- Usage: <AFButton variant="default">Label</AFButton>
+- Rules:
+  - Use for main call-to-action
+  - One primary button per section</pre>
+                </div>
+
+                <!-- Full Prompt (for v0/Bolt) -->
+                <div class="af-prompt-block" data-prompt-type="full" hidden>
+                    <div class="af-prompt-header">
+                        <span>Full Prompt (v0 / Bolt / Lovable)</span>
+                        <button class="af-copy-btn" onclick="copyPromptBlock('full')">Copy</button>
+                    </div>
+                    <pre id="prompt-full" class="af-prompt-content">## AstroFusion Design System — Button Component
+
+### Design Philosophy
+AstroFusion follows a "Cosmic" design language with deep purples, glass effects, and mystical aesthetics. Similar to shadcn/ui but tailored for astrology applications.
+
+### Component: Button
+- **Variants**: default (primary), secondary, glass, destructive, outline, ghost
+- **Sizes**: sm, md (default), lg
+- **Colors**: 
+  - Primary: #2f2a5c (cosmic-600)
+  - Glass: rgba(255, 255, 255, 0.1) with backdrop-blur
+
+### Usage
+```tsx
+import { AFButton } from '@astrofusion/design-system';
+
+<AFButton variant="default" size="md">
   Click Me
-&lt;/button&gt;</code></pre>
+</AFButton>
+```
+
+### CSS Classes (for HTML)
+```html
+<button class="af-button af-button--primary af-button--md">
+  Click Me
+</button>
+```
+
+### Design Rules
+1. One primary button per section
+2. Use glass variant only on dark/gradient backgrounds
+3. Minimum touch target: 44px
+4. Always include hover/focus states
+
+### Source Repository
+https://github.com/astro-fusion/af-design/tree/main/packages/ui/components-web</pre>
                 </div>
 
-                <div class="af-code-block" data-platform="react" hidden>
-                    <div class="af-code-header">
-                        <span>React</span>
-                        <button class="af-copy-btn" onclick="copyCode(this)">Copy</button>
+                <!-- System Prompt (Platform-aware) -->
+                <div class="af-prompt-block" data-prompt-type="system" hidden>
+                    <div class="af-prompt-header">
+                        <span id="system-prompt-label">System Prompt (Web)</span>
+                        <button class="af-copy-btn" onclick="copyPromptBlock('system')">Copy</button>
                     </div>
-                    <pre><code>import { Button } from '@astrofusion/design-system-web';
-
-&lt;Button variant="primary"&gt;Click Me&lt;/Button&gt;</code></pre>
-                </div>
-
-                <div class="af-code-block" data-platform="rn" hidden>
-                    <div class="af-code-header">
-                        <span>React Native</span>
-                        <button class="af-copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>import { Button } from '@astrofusion/design-system-native';
-
-&lt;Button variant="primary"&gt;Click Me&lt;/Button&gt;</code></pre>
-                </div>
-
-                <div class="af-code-block" data-platform="swift" hidden>
-                    <div class="af-code-header">
-                        <span>SwiftUI</span>
-                        <button class="af-copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>AFButton("Click Me", variant: .primary) {
-    // action
-}</code></pre>
-                </div>
-
-                <div class="af-code-block" data-platform="kotlin" hidden>
-                    <div class="af-code-header">
-                        <span>Jetpack Compose</span>
-                        <button class="af-copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>AFButton(
-    text = "Click Me",
-    variant = ButtonVariant.Primary,
-    onClick = { /* action */ }
-)</code></pre>
+                    <pre id="prompt-system" class="af-prompt-content"></pre>
                 </div>
             </div>
 
-            <!-- Card Component -->
-            <div class="af-component-card">
-                <h3>Card</h3>
-                <p>A container with solid or glass styling.</p>
-                
-                <div class="af-component-demo af-component-demo--dark">
-                    <div class="af-card af-card--solid">
-                        <h4>Solid Card</h4>
-                        <p>Default card styling.</p>
-                    </div>
-                    <div class="af-card af-card--glass">
-                        <h4>Glass Card</h4>
-                        <p>Frosted glass effect.</p>
-                    </div>
-                </div>
-
-                <div class="af-code-block">
+            <!-- Code Examples by Platform -->
+            <div class="af-code-section">
+                <h3>💻 Code Examples</h3>
+                <div id="code-block-buttons" class="af-code-block">
                     <div class="af-code-header">
-                        <span>HTML</span>
-                        <button class="af-copy-btn" onclick="copyCode(this)">Copy</button>
+                        <span id="code-label">HTML/CSS</span>
+                        <button class="af-copy-btn" onclick="copyCodeBlock()">Copy</button>
                     </div>
-                    <pre><code>&lt;div class="af-card af-card--glass"&gt;
-  &lt;h4&gt;Card Title&lt;/h4&gt;
-  &lt;p&gt;Card content here.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+                    <pre id="code-content"><code></code></pre>
                 </div>
             </div>
         </section>
 
-        <!-- AI Prompts Section -->
-        <section id="ai" class="af-section">
-            <h2>🤖 AI Prompts</h2>
-            <p>Copy these prompts to give your AI assistant context about the design system.</p>
+        <!-- Cards Section -->
+        <section id="cards" class="af-section" data-tab="cards" hidden>
+            <h2>🃏 Cards</h2>
+            <p>Container components with solid or glass styling.</p>
 
-            <div class="af-prompt-card">
-                <div class="af-prompt-header">
-                    <span>System Prompt - Web</span>
-                    <button class="af-copy-btn" onclick="copyPrompt('web')">Copy for AI</button>
+            <div class="af-component-demo af-component-demo--dark">
+                <div class="af-card af-card--solid">
+                    <h4>Solid Card</h4>
+                    <p>Default card styling with shadow.</p>
                 </div>
-                <pre id="prompt-web" class="af-prompt-content">You are an expert UI assistant for AstroFusion Design System.
-
-PLATFORM: Web (HTML/CSS or React + Tailwind)
-- Use class names: af-button, af-card
-- Variants: --primary, --secondary, --glass
-- Sizes: --sm, --md, --lg
-
-DESIGN TOKENS:
-- Primary: #2f2a5c (cosmic-600)
-- Surface Glass: rgba(255, 255, 255, 0.1)
-- Spacing: 0-12 scale (1 unit = 0.25rem)
-
-RESTRICTIONS:
-- DO NOT invent colors. Use CSS variables.
-- ALWAYS use af-* class prefixes.</pre>
+                <div class="af-card af-card--glass">
+                    <h4>Glass Card</h4>
+                    <p>Frosted glass effect.</p>
+                </div>
             </div>
 
-            <div class="af-prompt-card">
-                <div class="af-prompt-header">
-                    <span>System Prompt - React Native</span>
-                    <button class="af-copy-btn" onclick="copyPrompt('rn')">Copy for AI</button>
+            <div class="af-component-card">
+                <h3>Card Component</h3>
+                <div class="af-component-row">
+                    <div class="af-component-row__left">
+                        <span class="af-tag">af-card--solid</span>
+                        <span class="af-tag af-tag--glass">af-card--glass</span>
+                    </div>
+                    <div class="af-component-row__actions">
+                        <button class="af-copy-icon" data-component="card" title="Copy AI Prompt">📋</button>
+                    </div>
                 </div>
-                <pre id="prompt-rn" class="af-prompt-content">You are an expert UI assistant for AstroFusion Design System.
+            </div>
+        </section>
 
-PLATFORM: React Native
-- Import from '@astrofusion/design-system-native'
-- Components: Button, Card
-- Use StyleSheet for custom styles
+        <!-- Tokens Section -->
+        <section id="tokens" class="af-section" data-tab="tokens" hidden>
+            <h2>🎨 Design Tokens</h2>
+            <p>CSS Custom Properties for colors, typography, and spacing.</p>
 
-DESIGN TOKENS:
-- Primary: #2f2a5c
-- Use theme from '@astrofusion/design-tokens/nativewind'
-
-RESTRICTIONS:
-- DO NOT use Tailwind classes directly.
-- ALWAYS use design system components.</pre>
+            <div class="af-token-grid">
+                <div class="af-token-card">
+                    <h4>Colors</h4>
+                    <div class="af-color-swatch" style="--color: var(--color-cosmic-900)"><span>cosmic-900</span></div>
+                    <div class="af-color-swatch" style="--color: var(--color-cosmic-600)"><span>cosmic-600</span></div>
+                </div>
+                <div class="af-token-card">
+                    <h4>Spacing</h4>
+                    <code>--space-1: 0.25rem</code><br>
+                    <code>--space-4: 1rem</code><br>
+                    <code>--space-8: 2rem</code>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="af-footer">
         <p>MIT License © 2024 AstroFusion</p>
-        <p><a href="https://github.com/astro-fusion/af-design">GitHub</a></p>
+        <p><a href="https://github.com/astro-fusion/af-design">GitHub Repository</a></p>
     </footer>
 
+    <script src="scripts/prompts.js"></script>
     <script src="scripts/main.js"></script>
 </body>
+
 </html>
