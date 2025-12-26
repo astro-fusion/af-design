@@ -1,0 +1,55 @@
+<div class="section__header">
+    <h2 class="section__title">Layout & Boxes</h2>
+    <p class="section__lead">Core building blocks for structure and containment.</p>
+</div>
+
+<div class="space-y-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Default Box -->
+        <div class="card card--bordered bg-white dark:bg-slate-900 border-border">
+            <div class="card__header justify-between">
+                <h3 class="font-semibold">Default Box</h3>
+                <button class="copy-icon" data-component="box-default">📋</button>
+            </div>
+            <p class="text-muted-foreground mt-2">Basic container with background and text color.</p>
+        </div>
+
+        <!-- Card Box -->
+        <div class="af-card p-6">
+            <div class="flex justify-between mb-2">
+                <h3 class="font-semibold">Card Variant</h3>
+                <button class="copy-icon" data-component="box-card">📋</button>
+            </div>
+            <p class="text-muted-foreground">Rounded, bordered, and shadowed container for distinct content groupings.
+            </p>
+        </div>
+
+        <!-- Glass Box -->
+        <div
+            class="af-card af-card--glass p-8 md:col-span-2 relative overflow-hidden text-center flex flex-col items-center justify-center min-h-[200px]">
+            <div
+                class="relative z-10 glass-content max-w-md p-6 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md">
+                <div class="flex justify-between mb-2">
+                    <h3 class="font-semibold text-white">Glass Variant</h3>
+                    <button class="copy-icon text-white/80 hover:text-white" data-component="box-glass">📋</button>
+                </div>
+                <p class="text-white/80">Overlay content on complex backgrounds using glassmorphism. Uses
+                    `backdrop-blur-md`.</p>
+            </div>
+            <!-- Background decoration -->
+            <div class="absolute inset-0 z-0 bg-gradient-to-br from-indigo-600/30 to-purple-600/30"></div>
+        </div>
+    </div>
+
+    <div class="card card--bordered">
+        <h3 class="card__title mb-4">Specs</h3>
+        <div class="specs__row">
+            <span class="specs__label">Web</span>
+            <code class="specs__value">packages/design-system/src/components/AFBox.tsx</code>
+        </div>
+        <div class="specs__row">
+            <span class="specs__label">Usage</span>
+            <code class="specs__value">&lt;AFBox variant="card" className="p-4"&gt;Content&lt;/AFBox&gt;</code>
+        </div>
+    </div>
+</div>

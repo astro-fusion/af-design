@@ -1,0 +1,195 @@
+<div class="section__header">
+    <h2 class="section__title">Form Components</h2>
+    <p class="section__lead">Input components with validation, accessibility, and multi-language support.</p>
+</div>
+
+<div class="space-y-8">
+    <!-- Text Inputs -->
+    <div class="card card--bordered p-8 space-y-6">
+        <div class="flex items-center justify-between">
+            <h3 class="card__title">Text Inputs</h3>
+            <button class="copy-icon" data-component="input-text">📋</button>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+                <label class="text-sm font-medium">Default Input</label>
+                <input type="text" placeholder="Enter text..." class="af-input" />
+                <p class="text-xs text-muted-foreground">Standard text input with focus ring</p>
+            </div>
+            <div class="space-y-2">
+                <label class="text-sm font-medium">Email Input</label>
+                <input type="email" placeholder="email@example.com" class="af-input" />
+                <p class="text-xs text-muted-foreground">Email with built-in validation</p>
+            </div>
+            <div class="space-y-2">
+                <label class="text-sm font-medium">Password Input</label>
+                <input type="password" placeholder="••••••••" class="af-input" />
+                <p class="text-xs text-muted-foreground">Secure password field</p>
+            </div>
+            <div class="space-y-2">
+                <label class="text-sm font-medium text-muted-foreground">Disabled Input</label>
+                <input type="text" placeholder="Cannot edit" disabled class="af-input" />
+                <p class="text-xs text-muted-foreground">Disabled state with visual indicator</p>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div class="space-y-2">
+            <label class="text-sm font-medium">Input with Error</label>
+            <input type="text" placeholder="Invalid input" class="af-input af-input--error" />
+            <p class="text-xs text-red-600 flex items-center gap-1">
+                <span>⚠️</span> This field is required
+            </p>
+        </div>
+
+        <!-- Devanagari -->
+        <div class="space-y-2">
+            <label class="text-sm font-medium">Devanagari Input (Hindi/Nepali)</label>
+            <input type="text" placeholder="नाम दर्ज गर्नुहोस्..." class="af-input font-devanagari text-lg" />
+            <p class="text-xs text-muted-foreground">Uses font-devanagari text-lg for proper scaling</p>
+        </div>
+    </div>
+
+    <!-- Selection Controls -->
+    <div class="card card--bordered p-8 space-y-6">
+        <div class="flex items-center justify-between">
+            <h3 class="card__title">Selection Controls</h3>
+            <button class="copy-icon" data-component="input-check-radio">📋</button>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Checkboxes -->
+            <div class="space-y-4">
+                <h4 class="font-semibold">Checkboxes</h4>
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox"
+                            class="w-5 h-5 rounded border-2 border-primary text-primary focus:ring-2 focus:ring-primary" />
+                        <span>Default Checkbox</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" checked
+                            class="w-5 h-5 rounded border-2 border-primary text-primary focus:ring-2 focus:ring-primary" />
+                        <span>Checked State</span>
+                    </label>
+                </div>
+            </div>
+            <!-- Radios -->
+            <div class="space-y-4">
+                <h4 class="font-semibold">Radio Buttons</h4>
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="radio" name="radio-demo"
+                            class="w-5 h-5 border-2 border-primary text-primary focus:ring-2 focus:ring-primary" />
+                        <span>Option 1</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="radio" name="radio-demo"
+                            class="w-5 h-5 border-2 border-primary text-primary focus:ring-2 focus:ring-primary" />
+                        <span>Option 2</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selects -->
+    <div class="card card--bordered p-8 space-y-6">
+        <div class="flex items-center justify-between">
+            <h3 class="card__title">Select & Dropdowns</h3>
+            <button class="copy-icon" data-component="input-select">📋</button>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+                <label class="text-sm font-medium">Native Select</label>
+                <div class="relative">
+                    <select class="af-input appearance-none cursor-pointer">
+                        <option value="">Select a planet...</option>
+                        <option value="sun">☀️ Sun (Surya)</option>
+                        <option value="moon">🌙 Moon (Chandra)</option>
+                        <option value="mars">♂️ Mars (Mangal)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <label class="text-sm font-medium">Rashi Select (राशि)</label>
+                <div class="relative">
+                    <select class="af-input appearance-none cursor-pointer font-devanagari text-lg">
+                        <option value="">राशि चयन गर्नुहोस्...</option>
+                        <option value="aries">♈ मेष</option>
+                        <option value="taurus">♉ वृषभ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Validation Patterns -->
+    <div class="card card--bordered p-8 space-y-6">
+        <h3 class="card__title">Validation Patterns</h3>
+        <div class="grid md:grid-cols-3 gap-4">
+            <!-- Valid -->
+            <div class="p-4 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/20 dark:border-green-800">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-green-600">✓</span>
+                    <h4 class="m-0 text-green-700 dark:text-green-400 font-semibold">Valid State</h4>
+                </div>
+                <input type="text" value="john@example.com" readonly
+                    class="w-full px-3 py-2 rounded border border-green-300 dark:border-green-700 bg-white dark:bg-slate-900 text-sm" />
+                <p class="text-xs text-green-600 dark:text-green-400 mt-2">Email format is valid</p>
+            </div>
+            <!-- Error -->
+            <div class="p-4 rounded-lg border border-red-200 bg-red-50 dark:bg-red-950/20 dark:border-red-800">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-red-600">⚠️</span>
+                    <h4 class="m-0 text-red-700 dark:text-red-400 font-semibold">Error State</h4>
+                </div>
+                <input type="text" value="invalid-email" readonly
+                    class="w-full px-3 py-2 rounded border border-red-300 dark:border-red-700 bg-white dark:bg-slate-900 text-sm" />
+                <p class="text-xs text-red-600 dark:text-red-400 mt-2">Please enter a valid email</p>
+            </div>
+            <!-- Warning -->
+            <div class="p-4 rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-amber-600">⚡</span>
+                    <h4 class="m-0 text-amber-700 dark:text-amber-400 font-semibold">Warning State</h4>
+                </div>
+                <input type="text" value="weak-pass" readonly
+                    class="w-full px-3 py-2 rounded border border-amber-300 dark:border-amber-700 bg-white dark:bg-slate-900 text-sm" />
+                <p class="text-xs text-amber-600 dark:text-amber-400 mt-2">Password could be stronger</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example Form -->
+    <div class="af-card af-card--glass p-8 space-y-6">
+        <h3 class="card__title text-white">Example: Birth Data Form</h3>
+        <p class="text-white/80">Complete form example for astrology birth data collection.</p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+                <label class="text-sm font-medium text-white">Full Name</label>
+                <input type="text" placeholder="Enter your name"
+                    class="af-input bg-white/20 border-white/20 text-white placeholder:text-white/50 focus:bg-white/30" />
+            </div>
+            <div class="space-y-2">
+                <label class="text-sm font-medium text-white">Birth Date</label>
+                <input type="date" class="af-input bg-white/20 border-white/20 text-white focus:bg-white/30" />
+            </div>
+            <div class="space-y-2">
+                <label class="text-sm font-medium text-white">Birth Time</label>
+                <input type="time" class="af-input bg-white/20 border-white/20 text-white focus:bg-white/30" />
+            </div>
+            <div class="space-y-2">
+                <label class="text-sm font-medium text-white">Birth Place</label>
+                <input type="text" placeholder="City, Country"
+                    class="af-input bg-white/20 border-white/20 text-white placeholder:text-white/50 focus:bg-white/30" />
+            </div>
+        </div>
+        <div class="flex justify-end gap-4 pt-4">
+            <button class="af-button af-button--glass">Cancel</button>
+            <button class="af-button af-button--primary">Generate Kundali</button>
+        </div>
+    </div>
+</div>

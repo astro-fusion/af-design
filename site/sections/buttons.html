@@ -1,0 +1,127 @@
+<div class="section__header">
+    <h2 class="section__title">Buttons</h2>
+    <p class="section__lead">Interactive elements for triggering actions. Supports multiple variants and sizes.</p>
+</div>
+
+<div class="card">
+    <h3 class="card__title">Variants</h3>
+
+    <div class="component-row">
+        <div class="component-row__left">
+            <button class="af-button af-button--primary">Default</button>
+            <div class="component-row__label">
+                <span class="component-row__title">Primary Action</span>
+                <span class="component-row__desc">— Main call-to-action</span>
+            </div>
+        </div>
+        <button class="copy-icon" data-component="button-primary" title="Copy AI Prompt">📋</button>
+    </div>
+
+    <div class="component-row">
+        <div class="component-row__left">
+            <button class="af-button af-button--secondary">Secondary</button>
+            <div class="component-row__label">
+                <span class="component-row__title">Alternative</span>
+                <span class="component-row__desc">— Less emphasis</span>
+            </div>
+        </div>
+        <button class="copy-icon" data-component="button-secondary" title="Copy AI Prompt">📋</button>
+    </div>
+
+    <div class="component-row component-row--destructive">
+        <div class="component-row__left">
+            <button class="af-button af-button--destructive">Destructive</button>
+            <div class="component-row__label">
+                <span class="component-row__title" style="color: var(--color-red-700)">Danger Zone</span>
+                <span class="component-row__desc" style="color: var(--color-red-600)">— Irreversible actions</span>
+            </div>
+        </div>
+        <button class="copy-icon" data-component="button-destructive" title="Copy AI Prompt">📋</button>
+    </div>
+
+    <div class="component-row">
+        <div class="component-row__left">
+            <button class="af-button af-button--outline">Outline</button>
+            <span class="component-row__desc">Bordered, transparent background</span>
+        </div>
+    </div>
+
+    <div class="component-row">
+        <div class="component-row__left">
+            <button class="af-button af-button--ghost">Ghost</button>
+            <span class="component-row__desc">Minimal, hover-only effect</span>
+        </div>
+    </div>
+
+    <!-- Glass Context Demo -->
+    <div class="glass-demo">
+        <p class="glass-demo__label">Glass / Dark Context</p>
+        <div class="glass-demo__buttons">
+            <button class="af-button af-button--glass">Glass Variant</button>
+            <button class="af-button af-button--primary">Primary</button>
+            <button class="glass-demo__outline">Outline</button>
+        </div>
+        <p class="glass-demo__note">⚠️ Glass/transparent buttons need careful contrast consideration on varying
+            backgrounds.</p>
+    </div>
+</div>
+
+<div class="card">
+    <h3 class="card__title">Sizes</h3>
+    <div class="component-demo">
+        <button class="af-button af-button--primary af-button--sm">Small</button>
+        <button class="af-button af-button--primary af-button--md">Default</button>
+        <button class="af-button af-button--primary af-button--lg">Large</button>
+        <button class="af-button af-button--primary af-button--icon">★</button>
+    </div>
+</div>
+
+<!-- Prompt Display -->
+<div id="prompt-display" class="prompt-display" hidden>
+    <div class="prompt-display__header">
+        <span>AI Prompt:</span>
+        <div class="prompt-display__actions">
+            <button id="edit-prompt" title="Edit">✏️</button>
+            <button id="copy-prompt" title="Copy">📋</button>
+            <button id="clear-prompt" title="Clear">✕</button>
+        </div>
+    </div>
+    <pre id="prompt-content" class="prompt-display__content"></pre>
+</div>
+
+<!-- Specs -->
+<div class="specs">
+    <div class="specs__row">
+        <span class="specs__label">Web</span>
+        <code class="specs__value">packages/ui/components-web/src/Button.tsx</code>
+    </div>
+    <div class="specs__row">
+        <span class="specs__label">Native</span>
+        <code class="specs__value">packages/ui/components-native/src/Button.tsx</code>
+    </div>
+    <div class="specs__row">
+        <span class="specs__label">Usage</span>
+        <code class="specs__value">&lt;AFButton variant="default" size="default"&gt;Click Me&lt;/AFButton&gt;</code>
+    </div>
+</div>
+
+<!-- Platform Code Viewer -->
+<div class="source-viewer">
+    <div class="source-viewer__header">
+        <span class="source-viewer__title">💻 AFButton Source</span>
+        <div class="platform-tabs" id="button-platform-tabs">
+            <button class="platform-tab platform-tab--active" data-platform="web">Web</button>
+            <button class="platform-tab" data-platform="react-native">React Native</button>
+            <button class="platform-tab" data-platform="ios">iOS</button>
+            <button class="platform-tab" data-platform="android">Android</button>
+        </div>
+    </div>
+    <div class="source-viewer__content" id="button-source-content">
+        <pre><code id="button-source-code"></code></pre>
+    </div>
+    <div class="source-viewer__footer">
+        <button class="btn btn--small" onclick="copyCurrentCode()">📋 Copy Code</button>
+        <a href="https://github.com/astro-fusion/af-design/tree/main/packages/ui/components-web" target="_blank"
+            class="btn btn--small btn--outline">View on GitHub</a>
+    </div>
+</div>

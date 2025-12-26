@@ -1,0 +1,95 @@
+<div class="section__header">
+    <h2 class="section__title">Icons</h2>
+    <p class="section__lead">We use Lucide React for our iconography. Consistent, scalable, and fully accessible.</p>
+</div>
+
+<div class="space-y-8">
+    <!-- Usage -->
+    <div class="card card--bordered">
+        <div class="card__header mb-4">
+            <h3 class="card__title">Usage</h3>
+        </div>
+        <pre class="code-block code-block--blue"><code>import { ArrowRight, Settings } from "lucide-react";
+
+&lt;ArrowRight className="w-4 h-4" /&gt;
+&lt;Settings className="text-muted-foreground" /&gt;</code></pre>
+    </div>
+
+    <!-- Icons Grid -->
+    <div class="card card--bordered">
+        <div class="card__header mb-4">
+            <h3 class="card__title">Common Icons</h3>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <!-- ArrowRight -->
+            <div
+                class="flex flex-col items-center justify-center p-6 border border-border rounded-lg bg-background hover:bg-muted transition-colors relative">
+                <button class="copy-icon absolute top-2 right-2" data-component="icon-arrow-right">📋</button>
+                <svg class="w-8 h-8 mb-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+                <span class="text-xs font-mono text-muted-foreground">ArrowRight</span>
+            </div>
+            <!-- Settings -->
+            <div
+                class="flex flex-col items-center justify-center p-6 border border-border rounded-lg bg-background hover:bg-muted transition-colors relative">
+                <button class="copy-icon absolute top-2 right-2" data-component="icon-settings">📋</button>
+                <svg class="w-8 h-8 mb-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path
+                        d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.74v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+                <span class="text-xs font-mono text-muted-foreground">Settings</span>
+            </div>
+            <!-- Search -->
+            <div
+                class="flex flex-col items-center justify-center p-6 border border-border rounded-lg bg-background hover:bg-muted transition-colors relative">
+                <button class="copy-icon absolute top-2 right-2" data-component="icon-search">📋</button>
+                <svg class="w-8 h-8 mb-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                </svg>
+                <span class="text-xs font-mono text-muted-foreground">Search</span>
+            </div>
+            <!-- Menu -->
+            <div
+                class="flex flex-col items-center justify-center p-6 border border-border rounded-lg bg-background hover:bg-muted transition-colors relative">
+                <button class="copy-icon absolute top-2 right-2" data-component="icon-menu">📋</button>
+                <svg class="w-8 h-8 mb-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+                <span class="text-xs font-mono text-muted-foreground">Menu</span>
+            </div>
+            <!-- Sun -->
+            <div
+                class="flex flex-col items-center justify-center p-6 border border-border rounded-lg bg-background hover:bg-muted transition-colors relative">
+                <button class="copy-icon absolute top-2 right-2" data-component="icon-sun">📋</button>
+                <svg class="w-8 h-8 mb-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="12" cy="12" r="5" />
+                    <path
+                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+                <span class="text-xs font-mono text-muted-foreground">Sun</span>
+            </div>
+            <!-- Moon -->
+            <div
+                class="flex flex-col items-center justify-center p-6 border border-border rounded-lg bg-background hover:bg-muted transition-colors relative">
+                <button class="copy-icon absolute top-2 right-2" data-component="icon-moon">📋</button>
+                <svg class="w-8 h-8 mb-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+                <span class="text-xs font-mono text-muted-foreground">Moon</span>
+            </div>
+        </div>
+        <p class="mt-4 text-sm text-muted-foreground">Thousands of icons available at <a href="https://lucide.dev"
+                target="_blank" class="text-primary hover:underline">Lucide Library</a>.</p>
+    </div>
+</div>

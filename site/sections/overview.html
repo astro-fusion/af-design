@@ -1,0 +1,118 @@
+<div class="section__header">
+    <h1 class="section__title">AstroFusion Design System</h1>
+    <p class="section__lead">LLM-First Design System. Built for AI agents. Generative UI ready. MCP enabled.</p>
+    <p class="section__desc">A design system built with AI and LLMs in mind — enabling agents to query tokens via MCP,
+        generate safe UI with A2UI, and maintain design consistency across human and machine collaborators.</p>
+</div>
+
+<div class="cards-grid cards-grid--2col">
+    <div class="card card--bordered-left card--amber">
+        <div class="card__header">
+            <span class="card__icon">✨</span>
+            <h3 class="card__title">Generative UI (A2UI)</h3>
+        </div>
+        <p class="card__desc">JSON-driven rendering based on <a href="https://github.com/google/A2UI"
+                target="_blank">Google A2UI</a>. AI agents generate safe, native UI without code injection risks.</p>
+        <a href="#generative" class="card__link" data-section="generative">Try the Demo →</a>
+    </div>
+
+    <div class="card card--bordered-left card--green">
+        <div class="card__header">
+            <span class="card__icon">🤖</span>
+            <h3 class="card__title">MCP Server</h3>
+        </div>
+        <p class="card__desc">Model Context Protocol server exposes design tokens to AI assistants. Works with Cursor,
+            Claude Desktop, VS Code, and more.</p>
+        <a href="#mcp" class="card__link" data-section="mcp">View Documentation →</a>
+    </div>
+</div>
+
+<div class="card card--bordered-left card--primary">
+    <h3 class="card__title">📱 Cross-Platform (Encore Pattern)</h3>
+    <p class="card__desc">Same API, different renderers. Web uses Tailwind, Native uses NativeWind. One design system,
+        two platforms.</p>
+
+    <div class="code-compare">
+        <div class="code-compare__item">
+            <div class="code-label">
+                <span class="code-badge code-badge--blue">.tsx</span>
+                <span>React (Web)</span>
+            </div>
+            <pre class="code-block code-block--blue"><code>// Button.tsx (Web)
+import { cn } from "./utils";
+
+export const AFButton = ({ variant, children }) => (
+&lt;button className={cn(
+"rounded-lg px-4 py-2 font-medium",
+variant === "default" && "bg-primary text-white",
+variant === "outline" && "border border-primary"
+)}&gt;
+{children}
+&lt;/button&gt;
+);</code></pre>
+        </div>
+        <div class="code-compare__item">
+            <div class="code-label">
+                <span class="code-badge code-badge--green">.native.tsx</span>
+                <span>React Native</span>
+            </div>
+            <pre class="code-block code-block--green"><code>// Button.native.tsx (Mobile)
+import { Pressable, Text } from "react-native";
+
+export const AFButton = ({ variant, children }) => (
+&lt;Pressable className={cn(
+"rounded-lg px-4 py-2",
+variant === "default" && "bg-primary",
+variant === "outline" && "border border-primary"
+)}&gt;
+&lt;Text className="font-medium"&gt;{children}&lt;/Text&gt;
+&lt;/Pressable&gt;
+);</code></pre>
+        </div>
+    </div>
+    <p class="card__hint">💡 Import is the same: <code>import { AFButton } from '@astrofusion/design-system'</code></p>
+</div>
+
+<div class="cards-grid cards-grid--2col">
+    <div class="card card--bordered-left card--purple">
+        <h3 class="card__title">Multi-Language</h3>
+        <p class="card__desc">Hind for English/Nepali UI, JetBrains Mono for astronomical data.</p>
+        <div class="lang-demo">
+            <div class="lang-row"><span class="lang-label">English</span><span>Saturn in Pisces</span></div>
+            <div class="lang-row"><span class="lang-label">नेपाली</span><span class="font-devanagari">शनि मीन
+                    राशिमा</span></div>
+            <div class="lang-row"><span class="lang-label">Data</span><span class="font-mono data-badge">12° 34'
+                    56"</span></div>
+        </div>
+    </div>
+
+    <div class="card card--bordered-left card--cyan">
+        <h3 class="card__title">Design Tokens</h3>
+        <p class="card__desc">JSON tokens for Figma, Style Dictionary, and AI agents.</p>
+        <a href="https://github.com/astro-fusion/af-design/tree/main/packages/core/tokens" target="_blank"
+            class="btn btn--small btn--cyan">
+            <span>⬇</span> tokens.json
+        </a>
+    </div>
+</div>
+
+<div class="card card--gradient">
+    <h3 class="card__title">🚀 Quick Start for AI Agents</h3>
+    <div class="code-compare">
+        <div class="code-compare__item">
+            <p class="code-step">1. Enable MCP Server</p>
+            <pre class="code-block code-block--green"><code>// Add to mcp.json
+"astrofusion-design": {
+"command": "npx",
+"args": ["tsx", "mcp-server.ts"]
+}</code></pre>
+        </div>
+        <div class="code-compare__item">
+            <p class="code-step">2. Generate UI with A2UI</p>
+            <pre class="code-block code-block--blue"><code>&lt;GenerativeRenderer
+data={agentResponse.ui}
+onAction={handleAction}
+/&gt;</code></pre>
+        </div>
+    </div>
+</div>

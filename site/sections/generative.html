@@ -1,0 +1,95 @@
+<div class="section__header">
+    <div class="flex items-center gap-3 justify-center lg:justify-start">
+        <h2 class="section__title">Generative UI</h2>
+        <a href="https://github.com/google/A2UI" target="_blank"
+            class="text-xs bg-muted px-2 py-1 rounded hover:bg-muted/80 transition-colors">🔗 google/A2UI</a>
+    </div>
+    <p class="section__lead">Streaming native UI components from LLMs using JSON schemas.</p>
+    <p class="mt-4 text-muted-foreground">The AI sends a blueprint, and the app builds it using native components.
+        Secure, native, and cross-platform.</p>
+</div>
+
+<div class="space-y-8">
+    <!-- AI Prompts -->
+    <div
+        class="card card--bordered p-8 space-y-6 bg-gradient-to-br from-violet-50 to-indigo-50 dark:from-violet-950/20 dark:to-indigo-950/20">
+        <h3 class="card__title">System Prompts & Templates</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div
+                class="p-4 rounded-lg bg-white/50 dark:bg-slate-900/50 border border-violet-200 dark:border-violet-800">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xl">📝</span>
+                    <h4 class="font-semibold">Form Generator</h4>
+                </div>
+                <p class="text-sm text-muted-foreground mb-3">Generate form schemas for user data collection.</p>
+                <button class="text-xs bg-violet-100 text-violet-700 px-2 py-1 rounded">Copy Prompt</button>
+            </div>
+            <div
+                class="p-4 rounded-lg bg-white/50 dark:bg-slate-900/50 border border-violet-200 dark:border-violet-800">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xl">🎴</span>
+                    <h4 class="font-semibold">Card Layout</h4>
+                </div>
+                <p class="text-sm text-muted-foreground mb-3">Create content cards with rich media.</p>
+                <button class="text-xs bg-violet-100 text-violet-700 px-2 py-1 rounded">Copy Prompt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Demo Mockup -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="space-y-4">
+            <h3 class="font-semibold text-lg">JSON Payload (from AI)</h3>
+            <pre class="bg-slate-950 text-slate-50 p-4 rounded-lg text-xs font-mono overflow-auto h-[400px]"><code>{
+"type": "card",
+"props": { "variant": "default", "padding": "lg" },
+"children": [
+{
+  "type": "text",
+  "props": { "variant": "h2", "className": "mb-4" },
+  "children": "✨ AI Generated Interface"
+},
+{
+  "type": "text",
+  "props": { "variant": "default", "className": "mb-6" },
+  "children": "This card is rendered from JSON."
+},
+{
+  "type": "textField",
+  "props": { "label": "Full Name", "placeholder": "Enter name" }
+},
+{
+  "type": "row",
+  "children": [
+    { "type": "button", "children": "Cancel", "props": { "variant": "outline" } },
+    { "type": "button", "children": "Submit", "props": { "variant": "default" } }
+  ]
+}
+]
+}</code></pre>
+        </div>
+
+        <div class="space-y-4">
+            <h3 class="font-semibold text-lg">Rendered Output (Native UI)</h3>
+            <div class="p-8 border rounded-xl bg-muted/10 flex items-center justify-center min-h-[400px]">
+                <!-- The Rendered Card -->
+                <div class="af-card p-8 max-w-md w-full">
+                    <h2 class="text-2xl font-bold mb-4">✨ AI Generated Interface</h2>
+                    <p class="text-muted-foreground mb-6">This card is rendered from JSON.</p>
+
+                    <div class="space-y-4 mb-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">Full Name</label>
+                            <input type="text" placeholder="Enter name" class="af-input" />
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-6 pt-6 border-t border-border">
+                        <button class="af-button af-button--outline">Cancel</button>
+                        <button class="af-button af-button--primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="section__header">
+    <h2 class="section__title">Theming & Dark Mode</h2>
+    <p class="section__lead">Complete theming system with dark mode, CSS custom properties, and astrology-specific
+        colors.</p>
+</div>
+
+<div class="space-y-8">
+    <!-- Theme Modes -->
+    <div class="card card--bordered p-8">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-semibold">Theme Modes</h3>
+            <button class="copy-icon" data-component="theme-switcher">📋</button>
+        </div>
+        <div class="flex gap-4 flex-wrap">
+            <button
+                class="px-6 py-4 rounded-xl flex items-center gap-3 bg-white text-slate-900 border border-border hover:scale-105 transition-transform">
+                <span class="text-2xl">☀️</span>
+                <span class="font-medium">Light</span>
+            </button>
+            <button
+                class="px-6 py-4 rounded-xl flex items-center gap-3 bg-slate-900 text-slate-100 border border-border hover:scale-105 transition-transform">
+                <span class="text-2xl">🌙</span>
+                <span class="font-medium">Dark</span>
+            </button>
+            <button
+                class="px-6 py-4 rounded-xl flex items-center gap-3 bg-gradient-to-r from-white to-slate-900 text-slate-700 border border-border hover:scale-105 transition-transform">
+                <span class="text-2xl">💻</span>
+                <span class="font-medium">System</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- CSS Vars -->
+    <div class="card card--bordered">
+        <h3 class="card__title mb-4">CSS Custom Properties</h3>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-border">
+                        <th class="py-2 px-3 text-left font-medium">Variable</th>
+                        <th class="py-2 px-3 text-left font-medium">Light</th>
+                        <th class="py-2 px-3 text-left font-medium">Dark</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-border/50">
+                        <td class="py-2 px-3 font-mono">--background</td>
+                        <td class="py-2 px-3 font-mono">0 0% 100%</td>
+                        <td class="py-2 px-3 font-mono">222.2 84% 4.9%</td>
+                    </tr>
+                    <tr class="border-b border-border/50">
+                        <td class="py-2 px-3 font-mono">--foreground</td>
+                        <td class="py-2 px-3 font-mono">222.2 84% 4.9%</td>
+                        <td class="py-2 px-3 font-mono">210 40% 98%</td>
+                    </tr>
+                    <tr class="border-b border-border/50">
+                        <td class="py-2 px-3 font-mono">--primary</td>
+                        <td class="py-2 px-3 font-mono">263.4 70% 50.4%</td>
+                        <td class="py-2 px-3 font-mono">263.4 70% 50.4%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Planetary Colors Small -->
+    <div class="card card--bordered bg-gradient-to-br from-indigo-50/50 to-purple-50/50">
+        <h3 class="card__title mb-4">Astrology Color System</h3>
+        <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4">
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-orange-500 mb-1"></div>
+                <div class="text-xs">Sun</div>
+            </div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-slate-200 mb-1"></div>
+                <div class="text-xs">Moon</div>
+            </div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-red-600 mb-1"></div>
+                <div class="text-xs">Mars</div>
+            </div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-green-500 mb-1"></div>
+                <div class="text-xs">Mercury</div>
+            </div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-yellow-500 mb-1"></div>
+                <div class="text-xs">Jupiter</div>
+            </div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-pink-400 mb-1"></div>
+                <div class="text-xs">Venus</div>
+            </div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-blue-800 mb-1"></div>
+                <div class="text-xs">Saturn</div>
+            </div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-slate-600 mb-1"></div>
+                <div class="text-xs">Rahu</div>
+            </div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto rounded-full bg-amber-700 mb-1"></div>
+                <div class="text-xs">Ketu</div>
+            </div>
+        </div>
+    </div>
+</div>

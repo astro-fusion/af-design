@@ -1,0 +1,44 @@
+<div class="section__header">
+    <h2 class="section__title">AI Prompt Templates</h2>
+    <p class="section__lead">Copy-ready prompts for generating UI with AI assistants.</p>
+</div>
+
+<!-- Platform Selector -->
+<div class="platform-selector">
+    <button class="platform-btn platform-btn--active" data-platform="web">🌐 Web</button>
+    <button class="platform-btn" data-platform="react-native">📱 React Native</button>
+    <button class="platform-btn" data-platform="ios">🍎 iOS</button>
+    <button class="platform-btn" data-platform="android">🤖 Android</button>
+</div>
+
+<div class="prompt-types">
+    <div class="prompt-type-tabs">
+        <button class="prompt-type-tab prompt-type-tab--active" data-type="simple">Simple</button>
+        <button class="prompt-type-tab" data-type="full">Full (v0/Bolt)</button>
+        <button class="prompt-type-tab" data-type="system">System Prompt</button>
+    </div>
+
+    <div class="prompt-card" data-type="simple">
+        <div class="prompt-card__header">
+            <span>Simple Prompt</span>
+            <button class="btn btn--small" onclick="copyPrompt('simple')">Copy</button>
+        </div>
+        <pre id="prompt-simple" class="prompt-card__content"></pre>
+    </div>
+
+    <div class="prompt-card" data-type="full" hidden>
+        <div class="prompt-card__header">
+            <span>Full Prompt (v0 / Bolt / Lovable)</span>
+            <button class="btn btn--small" onclick="copyPrompt('full')">Copy</button>
+        </div>
+        <pre id="prompt-full" class="prompt-card__content"></pre>
+    </div>
+
+    <div class="prompt-card" data-type="system" hidden>
+        <div class="prompt-card__header">
+            <span>System Prompt / Cursor Rules</span>
+            <button class="btn btn--small" onclick="copyPrompt('system')">Copy</button>
+        </div>
+        <pre id="prompt-system" class="prompt-card__content"></pre>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+<div class="section__header">
+    <h2 class="section__title">Animation & Motion</h2>
+    <p class="section__lead">Micro-interactions and motion patterns for enhanced user experience.</p>
+</div>
+
+<div class="space-y-8">
+    <!-- Entrance Animations -->
+    <div class="card card--bordered p-8 space-y-6">
+        <div class="flex items-center justify-between">
+            <h3 class="card__title">Entrance Animations</h3>
+            <button class="copy-icon" data-component="anim-entrance">📋</button>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Fade In -->
+            <div class="space-y-4">
+                <h4 class="font-semibold">Fade In</h4>
+                <div id="demo-fadeIn" class="p-6 rounded-lg bg-muted text-center transition-all">
+                    <span class="text-4xl">✨</span>
+                    <p class="text-sm mt-2">animate-fade-in</p>
+                </div>
+                <button class="af-button af-button--outline w-full anim-trigger" data-target="demo-fadeIn"
+                    data-anim="animate-fade-in">Trigger</button>
+            </div>
+            <!-- Slide Up -->
+            <div class="space-y-4">
+                <h4 class="font-semibold">Slide Up</h4>
+                <div id="demo-slideUp" class="p-6 rounded-lg bg-muted text-center transition-all">
+                    <span class="text-4xl">📈</span>
+                    <p class="text-sm mt-2">slide-up</p>
+                </div>
+                <button class="af-button af-button--outline w-full anim-trigger" data-target="demo-slideUp"
+                    data-anim="animate-slide-up">Trigger</button>
+            </div>
+            <!-- Scale In -->
+            <div class="space-y-4">
+                <h4 class="font-semibold">Scale In</h4>
+                <div id="demo-scaleIn" class="p-6 rounded-lg bg-muted text-center transition-all">
+                    <span class="text-4xl">🎯</span>
+                    <p class="text-sm mt-2">scale-in</p>
+                </div>
+                <button class="af-button af-button--outline w-full anim-trigger" data-target="demo-scaleIn"
+                    data-anim="animate-scale-in">Trigger</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hover States -->
+    <div class="card card--bordered p-8 space-y-6">
+        <h3 class="card__title">Hover & Interactive States</h3>
+        <div class="grid md:grid-cols-4 gap-4">
+            <div
+                class="p-6 rounded-lg bg-muted text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-lg cursor-pointer">
+                <span class="text-3xl">🚀</span>
+                <p class="text-sm mt-2 font-medium">Lift</p>
+                <p class="text-xs text-muted-foreground">hover:-translate-y-1</p>
+            </div>
+            <div class="p-6 rounded-lg bg-muted text-center transition-all duration-200 hover:scale-105 cursor-pointer">
+                <span class="text-3xl">🔍</span>
+                <p class="text-sm mt-2 font-medium">Scale</p>
+                <p class="text-xs text-muted-foreground">hover:scale-105</p>
+            </div>
+            <div
+                class="p-6 rounded-lg bg-muted text-center transition-all duration-200 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] cursor-pointer">
+                <span class="text-3xl">💫</span>
+                <p class="text-sm mt-2 font-medium">Glow</p>
+                <p class="text-xs text-muted-foreground">hover:shadow-glow</p>
+            </div>
+            <div
+                class="p-6 rounded-lg bg-primary/10 text-center transition-all duration-200 hover:bg-primary/20 cursor-pointer">
+                <span class="text-3xl">🎨</span>
+                <p class="text-sm mt-2 font-medium">Color Shift</p>
+                <p class="text-xs text-muted-foreground">hover:bg-primary/20</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading States -->
+    <div class="card card--bordered p-8 space-y-6">
+        <h3 class="card__title">Loading States</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-lg bg-muted space-y-4 text-center">
+                <h4 class="font-semibold">Spinner</h4>
+                <div class="flex justify-center">
+                    <div class="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+                </div>
+            </div>
+            <div class="p-6 rounded-lg bg-muted space-y-4 text-center">
+                <h4 class="font-semibold">Pulse</h4>
+                <div class="flex justify-center">
+                    <div class="w-8 h-8 bg-primary rounded-full animate-pulse"></div>
+                </div>
+            </div>
+            <div class="p-6 rounded-lg bg-muted space-y-4 text-center">
+                <h4 class="font-semibold">Bounce</h4>
+                <div class="flex justify-center">
+                    <div class="w-8 h-8 bg-primary rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celestial Animations -->
+    <div
+        class="card card--bordered p-8 space-y-6 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20">
+        <h3 class="card__title">Celestial Animations</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Orbit -->
+            <div class="p-6 rounded-lg bg-background/50 text-center space-y-4">
+                <h4 class="font-semibold">Orbit</h4>
+                <div class="relative w-24 h-24 mx-auto">
+                    <div class="absolute inset-0 border-2 border-dashed border-muted rounded-full"></div>
+                    <div class="absolute w-4 h-4 bg-orange-400 rounded-full shadow-lg"
+                        style="top: 50%; left: 50%; transform-origin: 50% 50%; animation: spin 3s linear infinite; margin-top: -8px; margin-left: -8px;">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center text-2xl">☀️</div>
+                </div>
+            </div>
+            <!-- Twinkle -->
+            <div class="p-6 rounded-lg bg-background/50 text-center space-y-4">
+                <h4 class="font-semibold">Twinkle</h4>
+                <div class="flex justify-center gap-2 text-2xl">
+                    <span class="animate-pulse">⭐</span>
+                    <span class="animate-pulse" style="animation-delay: 0.3s">✨</span>
+                    <span class="animate-pulse" style="animation-delay: 0.6s">💫</span>
+                </div>
+            </div>
+            <!-- Moon Glow -->
+            <div class="p-6 rounded-lg bg-background/50 text-center space-y-4">
+                <h4 class="font-semibold">Moon Glow</h4>
+                <div class="flex justify-center">
+                    <div class="text-4xl animate-pulse drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🌙</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="section__header">
+    <h2 class="section__title">MCP Server</h2>
+    <p class="section__lead">Model Context Protocol server for AI agents to query design tokens. Works with Cursor,
+        Claude Desktop, VS Code, Windsurf, and more.</p>
+</div>
+
+<div class="card">
+    <h3 class="card__title">Installation</h3>
+    <pre class="code-block"><code>npx @astrofusion/design-mcp-server start</code></pre>
+</div>
+
+<div class="card">
+    <h3 class="card__title">Configuration (mcp.json)</h3>
+    <pre class="code-block"><code>{
+"astrofusion-design": {
+"command": "npx",
+"args": ["@astrofusion/design-mcp-server", "start"]
+}
+}</code></pre>
+</div>
+
+<div class="card">
+    <h3 class="card__title">Available Tools</h3>
+    <div class="tool-list">
+        <div class="tool-item">
+            <code>get_component_prompt</code>
+            <span>Get AI prompt for a specific component on a platform</span>
+        </div>
+        <div class="tool-item">
+            <code>get_platform_context</code>
+            <span>Get full system prompt for building UI on a platform</span>
+        </div>
+    </div>
+</div>
