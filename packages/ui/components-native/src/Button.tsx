@@ -11,7 +11,7 @@ import {
   buttonContainerVariants,
   buttonTextVariants,
   type ButtonContainerVariantsProps,
-} from '@astrofusion/design-tokens';
+} from '../../../core/tokens/src';
 import { cn } from './utils/cn';
 
 /**

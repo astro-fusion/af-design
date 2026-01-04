@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { boxVariants, type BoxVariantsProps } from '@astrofusion/design-tokens';
+import { boxVariants, type BoxVariantsProps } from '../../../core/tokens/src';
 import { cn } from './utils/cn';
 
 /**

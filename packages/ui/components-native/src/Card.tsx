@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { View, type ViewProps } from 'react-native';
-import { cardVariants, type CardVariantsProps } from '@astrofusion/design-tokens';
+import { cardVariants, type CardVariantsProps } from '../../../core/tokens/src';
 import { cn } from './utils/cn';
 
 /**

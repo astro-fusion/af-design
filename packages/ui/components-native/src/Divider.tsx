@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { View, Text, type ViewProps } from 'react-native';
-import { dividerVariants, type DividerVariantsProps } from '@astrofusion/design-tokens';
+import { dividerVariants, type DividerVariantsProps } from '../../../core/tokens/src';
 import { cn } from './utils/cn';
 
 /**

@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { textVariants, type TextVariantsProps } from '@astrofusion/design-tokens';
+import { textVariants, type TextVariantsProps } from '../../../core/tokens/src';
 import { cn } from './utils/cn';
 
 type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

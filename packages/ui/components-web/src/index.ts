@@ -78,4 +78,5 @@ export {
   inputVariants,
   dividerVariants,
   afGlassPlugin,
-} from '@astrofusion/design-tokens';
+} from '../../../core/tokens/src';
+

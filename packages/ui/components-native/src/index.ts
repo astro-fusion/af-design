@@ -61,4 +61,4 @@ export {
   textVariants,
   inputVariants,
   dividerVariants,
-} from '@astrofusion/design-tokens';
+} from '../../../core/tokens/src';

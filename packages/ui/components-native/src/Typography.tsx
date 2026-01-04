@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { Text, type TextProps } from 'react-native';
-import { textVariants, type TextVariantsProps } from '@astrofusion/design-tokens';
+import { textVariants, type TextVariantsProps } from '../../../core/tokens/src';
 import { cn } from './utils/cn';
 
 /**

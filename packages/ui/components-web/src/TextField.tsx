@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { inputVariants, type InputVariantsProps } from '@astrofusion/design-tokens';
+import { inputVariants, type InputVariantsProps } from '../../../core/tokens/src';
 import { cn } from './utils/cn';
 
 /**
