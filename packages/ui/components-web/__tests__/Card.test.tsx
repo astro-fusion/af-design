@@ -10,7 +10,8 @@ describe('Card component', () => {
   describe('exports', () => {
     it('should export Card component', () => {
       expect(Card).toBeDefined();
-      expect(typeof Card).toBe('function');
+      // forwardRef returns an object, not a function
+      expect(typeof Card).toBe('object');
     });
 
     it('should have displayName', () => {

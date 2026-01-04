@@ -1,42 +1,40 @@
 /**
- * @fileoverview Button component for web applications.
+ * @fileoverview Enhanced Button component for web applications
+ * Uses CVA for shared variant logic with native platform
  * @module @astrofusion/design-system-web
  * @license MIT
  */
 
 import React from 'react';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-/**
- * Button variant types.
- */
-export type ButtonVariant = 'primary' | 'secondary' | 'glass';
-
-/**
- * Button size types.
- */
-export type ButtonSize = 'sm' | 'md' | 'lg';
+import {
+  buttonContainerVariants,
+  buttonTextVariants,
+  type ButtonContainerVariantsProps,
+} from '@astrofusion/design-tokens';
+import { cn } from './utils/cn';
 
 /**
  * Props for the Button component.
  */
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    ButtonContainerVariantsProps {
   /**
-   * Visual variant of the button.
-   * @default 'primary'
+   * Optional loading state
    */
-  variant?: ButtonVariant;
-  
+  isLoading?: boolean;
   /**
-   * Size of the button.
-   * @default 'md'
+   * Optional left icon
    */
-  size?: ButtonSize;
+  leftIcon?: React.ReactNode;
+  /**
+   * Optional right icon
+   */
+  rightIcon?: React.ReactNode;
 }
 
 /**
- * A versatile button component with multiple variants and sizes.
+ * A versatile button component with iOS 26 liquid glass styling support.
  * 
  * @example
  * ```tsx
@@ -45,40 +43,48 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
  * 
  * // Glass variant with large size
  * <Button variant="glass" size="lg">Submit</Button>
- * ```
  * 
- * @param props - Button component props
- * @returns A styled button element
+ * // With icons
+ * <Button leftIcon={<IconStar />}>Favorite</Button>
+ * ```
  */
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  className,
-  variant = 'primary',
-  size = 'md',
-  ...props
-}) => {
-  const baseStyles = 'inline-flex items-center justify-center rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
-  
-  const variants: Record<ButtonVariant, string> = {
-    primary: 'bg-cosmic-600 text-starlight-100 hover:bg-cosmic-700 focus:ring-cosmic-600',
-    secondary: 'bg-starlight-200 text-cosmic-900 hover:bg-starlight-300 focus:ring-starlight-200',
-    glass: 'bg-surface-glass backdrop-blur-md border border-starlight-100/20 text-starlight-100 hover:bg-surface-glass-dark',
-  };
-
-  const sizes: Record<ButtonSize, string> = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-base',
-    lg: 'px-6 py-3 text-lg',
-  };
-
-  return (
-    <button
-      className={twMerge(clsx(baseStyles, variants[variant], sizes[size], className))}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      variant,
+      size,
+      isLoading,
+      leftIcon,
+      rightIcon,
+      disabled,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          buttonContainerVariants({ variant, size }),
+          buttonTextVariants({ variant, size }),
+          isLoading && 'opacity-70 cursor-wait',
+          className
+        )}
+        disabled={disabled || isLoading}
+        {...props}
+      >
+        {isLoading ? (
+          <span className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+        ) : leftIcon ? (
+          <span className="mr-2">{leftIcon}</span>
+        ) : null}
+        {children}
+        {rightIcon && <span className="ml-2">{rightIcon}</span>}
+      </button>
+    );
+  }
+);
 
 Button.displayName = 'Button';

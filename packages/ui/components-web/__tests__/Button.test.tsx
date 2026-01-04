@@ -10,7 +10,8 @@ describe('Button component', () => {
   describe('exports', () => {
     it('should export Button component', () => {
       expect(Button).toBeDefined();
-      expect(typeof Button).toBe('function');
+      // forwardRef returns an object, not a function
+      expect(typeof Button).toBe('object');
     });
 
     it('should have displayName', () => {

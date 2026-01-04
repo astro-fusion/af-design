@@ -1,92 +1,123 @@
-import React from 'react';
-import { Pressable, Text, PressableProps, StyleSheet } from 'react-native';
-import { clsx } from 'clsx';
+/**
+ * @fileoverview Button component for React Native with NativeWind
+ * Uses shared CVA variants from design tokens
+ * @module @astrofusion/design-system-native
+ * @license MIT
+ */
 
-interface ButtonProps extends PressableProps {
-  variant?: 'primary' | 'secondary' | 'glass';
-  size?: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
+import React from 'react';
+import { Pressable, Text, ActivityIndicator, View, type PressableProps } from 'react-native';
+import {
+  buttonContainerVariants,
+  buttonTextVariants,
+  type ButtonContainerVariantsProps,
+} from '@astrofusion/design-tokens';
+import { cn } from './utils/cn';
+
+/**
+ * Props for the Button component.
+ */
+export interface ButtonProps extends PressableProps, ButtonContainerVariantsProps {
+  /**
+   * Button label text
+   */
+  label?: string;
+  /**
+   * Optional loading state
+   */
+  isLoading?: boolean;
+  /**
+   * Additional class names for text
+   */
+  textClassName?: string;
+  /**
+   * Optional left icon
+   */
+  leftIcon?: React.ReactNode;
+  /**
+   * Optional right icon
+   */
+  rightIcon?: React.ReactNode;
+  /**
+   * Children (for complex content)
+   */
+  children?: React.ReactNode;
 }
 
+/**
+ * A versatile button component for React Native with NativeWind.
+ * 
+ * @example
+ * ```tsx
+ * // Primary button (default)
+ * <Button label="Click Me" />
+ * 
+ * // Glass variant with large size
+ * <Button variant="glass" size="lg" label="Submit" />
+ * 
+ * // With loading state
+ * <Button label="Processing" isLoading />
+ * ```
+ */
 export const Button: React.FC<ButtonProps> = ({
+  className,
+  variant,
+  size,
+  label,
+  isLoading,
+  textClassName,
+  leftIcon,
+  rightIcon,
+  disabled,
   children,
-  variant = 'primary',
-  size = 'md',
-  style,
   ...props
 }) => {
-  const baseStyles = styles.base;
-  
-  const variantStyles = {
-    primary: styles.primary,
-    secondary: styles.secondary,
-    glass: styles.glass,
-  };
+  const renderContent = () => {
+    if (isLoading) {
+      return (
+        <View className="flex-row items-center">
+          <ActivityIndicator size="small" className="mr-2" />
+          {label && (
+            <Text className={cn(buttonTextVariants({ variant, size }), textClassName)}>
+              {label}
+            </Text>
+          )}
+        </View>
+      );
+    }
 
-  const sizeStyles = {
-    sm: styles.sm,
-    md: styles.md,
-    lg: styles.lg,
-  };
+    if (children && typeof children !== 'string') {
+      return children;
+    }
 
-  const textSizeStyles = {
-    sm: styles.textSm,
-    md: styles.textMd,
-    lg: styles.textLg,
+    const textContent = label || (typeof children === 'string' ? children : null);
+
+    return (
+      <View className="flex-row items-center">
+        {leftIcon && <View className="mr-2">{leftIcon}</View>}
+        {textContent && (
+          <Text className={cn(buttonTextVariants({ variant, size }), textClassName)}>
+            {textContent}
+          </Text>
+        )}
+        {rightIcon && <View className="ml-2">{rightIcon}</View>}
+      </View>
+    );
   };
 
   return (
     <Pressable
-      style={[baseStyles, variantStyles[variant], sizeStyles[size], style as any]}
+      className={cn(
+        buttonContainerVariants({ variant, size }),
+        isLoading && 'opacity-70',
+        className
+      )}
+      disabled={disabled || isLoading}
       {...props}
     >
-      <Text style={[styles.text, textSizeStyles[size]]}>
-        {children}
-      </Text>
+      {renderContent()}
     </Pressable>
   );
 };
 
-const styles = StyleSheet.create({
-  base: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 8,
-  },
-  primary: {
-    backgroundColor: '#2f2a5c', // cosmic-600
-  },
-  secondary: {
-    backgroundColor: '#f8f9fa', // starlight-200
-  },
-  glass: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
-  },
-  sm: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-  },
-  md: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  lg: {
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-  },
-  text: {
-    color: '#ffffff',
-    fontWeight: '600',
-  },
-  textSm: {
-    fontSize: 14,
-  },
-  textMd: {
-    fontSize: 16,
-  },
-  textLg: {
-    fontSize: 18,
-  },
-});
+Button.displayName = 'Button';

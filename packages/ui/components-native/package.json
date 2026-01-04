@@ -2,14 +2,56 @@
   "name": "@astrofusion/design-system-native",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./Button": {
+      "import": "./dist/Button.js",
+      "types": "./dist/Button.d.ts"
+    },
+    "./Card": {
+      "import": "./dist/Card.js",
+      "types": "./dist/Card.d.ts"
+    },
+    "./Box": {
+      "import": "./dist/Box.js",
+      "types": "./dist/Box.d.ts"
+    },
+    "./Typography": {
+      "import": "./dist/Typography.js",
+      "types": "./dist/Typography.d.ts"
+    },
+    "./TextField": {
+      "import": "./dist/TextField.js",
+      "types": "./dist/TextField.d.ts"
+    },
+    "./Divider": {
+      "import": "./dist/Divider.js",
+      "types": "./dist/Divider.d.ts"
+    },
+    "./Layout": {
+      "import": "./dist/Layout.js",
+      "types": "./dist/Layout.d.ts"
+    }
+  },
   "peerDependencies": {
-    "react": "^18.0.0",
+    "react": ">=18.0.0",
     "react-native": ">=0.72.0",
-    "nativewind": "^4.0.0"
+    "nativewind": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "nativewind": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@astrofusion/design-tokens": "workspace:*",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0"
   },
   "devDependencies": {
@@ -21,3 +63,4 @@
     "build": "tsc"
   }
 }
+

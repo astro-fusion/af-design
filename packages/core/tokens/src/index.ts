@@ -9,35 +9,53 @@ import colors from './colors.json';
 import typography from './typography.json';
 import spacing from './spacing.json';
 
-/**
- * Complete design token collection.
- * @typedef {Object} DesignTokens
- * @property {typeof colors} colors - Color palette tokens
- * @property {typeof typography} typography - Typography tokens
- * @property {typeof spacing} spacing - Spacing scale tokens
- */
+// Core tokens
 export const tokens = {
   colors,
   typography,
   spacing
 };
 
-/**
- * TypeScript type for the complete token set.
- */
 export type DesignTokens = typeof tokens;
-
-/**
- * Color tokens type.
- */
 export type ColorTokens = typeof colors;
-
-/**
- * Typography tokens type.
- */
 export type TypographyTokens = typeof typography;
-
-/**
- * Spacing tokens type.
- */
 export type SpacingTokens = typeof spacing;
+
+// Glassmorphism tokens
+export {
+  glassmorphism,
+  glassUtils,
+  type GlassmorphismTokens,
+  type GlassBackgroundKey,
+  type GlassBlurKey,
+  type GlassBorderKey,
+  type GlassStyleKey,
+} from './glassmorphism';
+
+// CVA-based variants (shared between web and native)
+export {
+  // Typography
+  textVariants,
+  type TextVariantsProps,
+  // Button
+  buttonContainerVariants,
+  buttonTextVariants,
+  type ButtonContainerVariantsProps,
+  type ButtonTextVariantsProps,
+  // Box
+  boxVariants,
+  type BoxVariantsProps,
+  // Card
+  cardVariants,
+  type CardVariantsProps,
+  // Input
+  inputVariants,
+  type InputVariantsProps,
+  // Divider
+  dividerVariants,
+  type DividerVariantsProps,
+} from './variants';
+
+// Tailwind CSS plugin
+export { afGlassPlugin, default as tailwindPlugin } from './tailwind-plugin';
+

@@ -2,26 +2,70 @@
   "name": "@astrofusion/design-system-web",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "sideEffects": ["*.css"],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./Button": {
+      "import": "./dist/Button.js",
+      "types": "./dist/Button.d.ts"
+    },
+    "./Card": {
+      "import": "./dist/Card.js",
+      "types": "./dist/Card.d.ts"
+    },
+    "./Box": {
+      "import": "./dist/Box.js",
+      "types": "./dist/Box.d.ts"
+    },
+    "./Typography": {
+      "import": "./dist/Typography.js",
+      "types": "./dist/Typography.d.ts"
+    },
+    "./TextField": {
+      "import": "./dist/TextField.js",
+      "types": "./dist/TextField.d.ts"
+    },
+    "./Divider": {
+      "import": "./dist/Divider.js",
+      "types": "./dist/Divider.d.ts"
+    },
+    "./Layout": {
+      "import": "./dist/Layout.js",
+      "types": "./dist/Layout.d.ts"
+    },
+    "./Image": {
+      "import": "./dist/Image.js",
+      "types": "./dist/Image.d.ts"
+    },
+    "./css": "./dist/index.css"
+  },
   "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
     "@astrofusion/design-tokens": "workspace:*",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.0",
     "postcss": "^8.0.0",
-    "tailwindcss": "4.0.0-alpha.34",
+    "tailwindcss": "^3.4.0",
     "typescript": "^5.3.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0"
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
   },
   "scripts": {
     "build": "tsc && npm run build:css",
     "build:css": "tailwindcss -i ./src/index.css -o ./dist/index.css"
   }
 }
+

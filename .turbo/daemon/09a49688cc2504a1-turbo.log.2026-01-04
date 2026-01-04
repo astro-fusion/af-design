@@ -1,0 +1,14 @@
+2026-01-04T12:03:57.800776Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/1.cookie"), AnchoredSystemPathBuf(".turbo/cookies/.turbo-cookie")}
+2026-01-04T12:03:57.800783Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2026-01-04T12:04:12.901745Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("turbo.json")}
+2026-01-04T12:04:12.901755Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All)
+2026-01-04T12:04:15.502224Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/core/tokens/dist")}
+2026-01-04T12:04:15.502233Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@astrofusion/design-tokens"), path: AnchoredSystemPathBuf("packages/core/tokens") }}))
+2026-01-04T12:05:02.901949Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/ui/components-web/src/Divider.tsx")}
+2026-01-04T12:05:02.901958Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@astrofusion/design-system-web"), path: AnchoredSystemPathBuf("packages/ui/components-web") }}))
+2026-01-04T12:05:04.902407Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/ui/components-web/src/Typography.tsx")}
+2026-01-04T12:05:04.902415Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@astrofusion/design-system-web"), path: AnchoredSystemPathBuf("packages/ui/components-web") }}))
+2026-01-04T12:05:59.502137Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/ui/components-web/__tests__/Button.test.tsx")}
+2026-01-04T12:05:59.502147Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@astrofusion/design-system-web"), path: AnchoredSystemPathBuf("packages/ui/components-web") }}))
+2026-01-04T12:06:18.302526Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/ui/components-web/__tests__/Card.test.tsx")}
+2026-01-04T12:06:18.302534Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@astrofusion/design-system-web"), path: AnchoredSystemPathBuf("packages/ui/components-web") }}))

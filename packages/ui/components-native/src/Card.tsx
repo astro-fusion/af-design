@@ -1,44 +1,87 @@
-import React from 'react';
-import { View, ViewProps, StyleSheet } from 'react-native';
+/**
+ * @fileoverview Card component for React Native with NativeWind
+ * @module @astrofusion/design-system-native
+ * @license MIT
+ */
 
-interface CardProps extends ViewProps {
-  variant?: 'solid' | 'glass';
+import React from 'react';
+import { View, type ViewProps } from 'react-native';
+import { cardVariants, type CardVariantsProps } from '@astrofusion/design-tokens';
+import { cn } from './utils/cn';
+
+/**
+ * Props for the Card component.
+ */
+export interface CardProps extends ViewProps, CardVariantsProps {
+  /**
+   * Optional header content
+   */
+  header?: React.ReactNode;
+  /**
+   * Optional footer content
+   */
+  footer?: React.ReactNode;
 }
 
+/**
+ * A container component with solid or glass styling.
+ * 
+ * @example
+ * ```tsx
+ * // Default card
+ * <Card><Text>Content here</Text></Card>
+ * 
+ * // Glass variant
+ * <Card variant="glass"><Text>Floating content</Text></Card>
+ * ```
+ */
 export const Card: React.FC<CardProps> = ({
+  className,
+  variant,
+  padding,
+  header,
+  footer,
   children,
-  variant = 'solid',
-  style,
   ...props
 }) => {
-  const variantStyles = {
-    solid: styles.solid,
-    glass: styles.glass,
-  };
-
   return (
-    <View style={[styles.base, variantStyles[variant], style]} {...props}>
+    <View
+      className={cn(cardVariants({ variant, padding }), className)}
+      {...props}
+    >
+      {header && (
+        <View className="border-b border-inherit pb-4 mb-4">{header}</View>
+      )}
       {children}
+      {footer && (
+        <View className="border-t border-inherit pt-4 mt-4">{footer}</View>
+      )}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  base: {
-    borderRadius: 12,
-    padding: 24,
-  },
-  solid: {
-    backgroundColor: '#1a163a', // cosmic-800
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  glass: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-  },
-});
+Card.displayName = 'Card';
+
+/**
+ * Card Header component
+ */
+export const CardHeader: React.FC<ViewProps> = ({ className, ...props }) => (
+  <View className={cn('flex-col space-y-1.5', className)} {...props} />
+);
+CardHeader.displayName = 'CardHeader';
+
+/**
+ * Card Content component
+ */
+export const CardContent: React.FC<ViewProps> = ({ className, ...props }) => (
+  <View className={cn('pt-0', className)} {...props} />
+);
+CardContent.displayName = 'CardContent';
+
+/**
+ * Card Footer component
+ */
+export const CardFooter: React.FC<ViewProps> = ({ className, ...props }) => (
+  <View className={cn('flex-row items-center pt-0', className)} {...props} />
+);
+CardFooter.displayName = 'CardFooter';
