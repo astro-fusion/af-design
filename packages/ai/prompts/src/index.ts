@@ -1,11 +1,11 @@
-import { tokens } from '@astrofusion/design-tokens';
+import { tokens } from "@astrofusion/design-tokens";
 
-export type Platform = 'web' | 'react-native' | 'ios' | 'android';
+export type Platform = "web" | "react-native" | "ios" | "android";
 
 interface PromptContextOptions {
   platform?: Platform;
   components?: string[];
-  tone?: 'mystical' | 'technical' | 'neutral';
+  tone?: "mystical" | "technical" | "neutral";
 }
 
 const PLATFORM_RULES: Record<Platform, string> = {
@@ -15,7 +15,7 @@ const PLATFORM_RULES: Record<Platform, string> = {
 - Components: AFButton, AFCard.
 - DO NOT use inline styles.`,
 
-  'react-native': `PLATFORM: React Native
+  "react-native": `PLATFORM: React Native
 - Import from '@astrofusion/design-system-native'.
 - Use StyleSheet.create() for styles.
 - Components: Button, Card.
@@ -44,7 +44,7 @@ const COMPONENT_RULES: Record<string, Record<Platform, string>> = {
 - Props: variant ('primary' | 'secondary' | 'glass'), size ('sm' | 'md' | 'lg').
 - DO NOT use raw <button> tags.`,
 
-    'react-native': `COMPONENT: Button (React Native)
+    "react-native": `COMPONENT: Button (React Native)
 - Use <Button> from '@astrofusion/design-system-native'.
 - Props: variant ('primary' | 'secondary' | 'glass'), size ('sm' | 'md' | 'lg').
 - Wrap text in the component; it handles Text internally.
@@ -70,7 +70,7 @@ const COMPONENT_RULES: Record<string, Record<Platform, string>> = {
 - Default variant is 'solid'.
 - Use 'glass' variant for floating UI elements.`,
 
-    'react-native': `COMPONENT: Card (React Native)
+    "react-native": `COMPONENT: Card (React Native)
 - Use <Card> from '@astrofusion/design-system-native'.
 - Props: variant ('solid' | 'glass').
 - Accepts children as content.
@@ -92,7 +92,7 @@ const COMPONENT_RULES: Record<string, Record<Platform, string>> = {
 
 export class PromptEngine {
   static createContext(options: PromptContextOptions = {}): string {
-    const { platform = 'web', components = [], tone = 'neutral' } = options;
+    const { platform = "web", components = [], tone = "neutral" } = options;
 
     let prompt = `You are an expert UI assistant for AstroFusion Design System.\n\n`;
 
@@ -100,9 +100,9 @@ export class PromptEngine {
     prompt += `${PLATFORM_RULES[platform]}\n\n`;
 
     // Inject Tone
-    if (tone === 'mystical') {
+    if (tone === "mystical") {
       prompt += `TONE: Use a mystical, ethereal, and elegant tone. Vocabulary: 'cosmic', 'stellar', 'void', 'manifest'.\n\n`;
-    } else if (tone === 'technical') {
+    } else if (tone === "technical") {
       prompt += `TONE: Precise, scientific, and data-driven.\n\n`;
     }
 
@@ -135,14 +135,17 @@ export class PromptEngine {
    * Generate a platform-specific component prompt
    */
   static getComponentPrompt(component: string, platform: Platform): string {
-    return COMPONENT_RULES[component]?.[platform] || `No rules defined for ${component} on ${platform}.`;
+    return (
+      COMPONENT_RULES[component]?.[platform] ||
+      `No rules defined for ${component} on ${platform}.`
+    );
   }
 
   /**
    * Get all available platforms
    */
   static getPlatforms(): Platform[] {
-    return ['web', 'react-native', 'ios', 'android'];
+    return ["web", "react-native", "ios", "android"];
   }
 
   /**

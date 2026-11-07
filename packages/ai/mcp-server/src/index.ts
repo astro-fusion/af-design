@@ -20,7 +20,7 @@ const server = new Server(
       resources: {},
       tools: {},
     },
-  }
+  },
 );
 
 // Platform-specific component rules
@@ -102,7 +102,11 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
   if (uri === "design://tokens/colors") {
     return {
       contents: [
-        { uri, mimeType: "application/json", text: JSON.stringify(tokens.colors, null, 2) },
+        {
+          uri,
+          mimeType: "application/json",
+          text: JSON.stringify(tokens.colors, null, 2),
+        },
       ],
     };
   }
@@ -110,7 +114,11 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
   if (uri === "design://tokens/typography") {
     return {
       contents: [
-        { uri, mimeType: "application/json", text: JSON.stringify(tokens.typography, null, 2) },
+        {
+          uri,
+          mimeType: "application/json",
+          text: JSON.stringify(tokens.typography, null, 2),
+        },
       ],
     };
   }
@@ -118,14 +126,24 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
   if (uri === "design://tokens/spacing") {
     return {
       contents: [
-        { uri, mimeType: "application/json", text: JSON.stringify(tokens.spacing, null, 2) },
+        {
+          uri,
+          mimeType: "application/json",
+          text: JSON.stringify(tokens.spacing, null, 2),
+        },
       ],
     };
   }
 
   if (uri === "design://tokens/all") {
     return {
-      contents: [{ uri, mimeType: "application/json", text: JSON.stringify(tokens, null, 2) }],
+      contents: [
+        {
+          uri,
+          mimeType: "application/json",
+          text: JSON.stringify(tokens, null, 2),
+        },
+      ],
     };
   }
 
@@ -199,7 +217,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
   if (request.params.name === "get_platform_context") {
     const platform = request.params.arguments?.platform as Platform;
-    const components = (request.params.arguments?.components as Component[]) || [];
+    const components =
+      (request.params.arguments?.components as Component[]) || [];
 
     let context = `You are an expert UI assistant for AstroFusion Design System.\n\n`;
 

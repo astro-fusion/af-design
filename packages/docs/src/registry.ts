@@ -1,5 +1,5 @@
-import { Platform } from './platforms';
-import { tokens } from '@astrofusion/design-tokens';
+import { Platform } from "./platforms";
+import { tokens } from "@astrofusion/design-tokens";
 
 // Component source code by platform
 export const COMPONENT_SOURCE: Record<string, Record<Platform, string>> = {
@@ -14,7 +14,7 @@ export default function Example() {
   );
 }`,
 
-    'react-native': `import { Button } from '@astrofusion/design-system-native';
+    "react-native": `import { Button } from '@astrofusion/design-system-native';
 
 export default function Example() {
   return (
@@ -61,7 +61,7 @@ export default function Example() {
   );
 }`,
 
-    'react-native': `import { Card } from '@astrofusion/design-system-native';
+    "react-native": `import { Card } from '@astrofusion/design-system-native';
 import { Text } from 'react-native';
 
 export default function Example() {
@@ -121,7 +121,7 @@ RESTRICTIONS:
 - DO NOT use hardcoded values.
 - ALWAYS use design system components.`,
 
-  'react-native': `You are an expert UI assistant for AstroFusion Design System.
+  "react-native": `You are an expert UI assistant for AstroFusion Design System.
 
 PLATFORM: React Native
 - Import from '@astrofusion/design-system-native'.
@@ -184,7 +184,7 @@ export const COMPONENT_PROMPTS: Record<string, Record<Platform, string>> = {
 - Props: variant ('primary' | 'secondary' | 'glass'), size ('sm' | 'md' | 'lg').
 - DO NOT use raw <button> tags.`,
 
-    'react-native': `COMPONENT: Button (React Native)
+    "react-native": `COMPONENT: Button (React Native)
 - Use <Button> from '@astrofusion/design-system-native'.
 - Props: variant ('primary' | 'secondary' | 'glass'), size ('sm' | 'md' | 'lg').
 - DO NOT use TouchableOpacity for standard buttons.`,
@@ -205,7 +205,7 @@ export const COMPONENT_PROMPTS: Record<string, Record<Platform, string>> = {
 - Use <Card> from '@astrofusion/design-system-web'.
 - Props: variant ('solid' | 'glass').`,
 
-    'react-native': `COMPONENT: Card (React Native)
+    "react-native": `COMPONENT: Card (React Native)
 - Use <Card> from '@astrofusion/design-system-native'.
 - Props: variant ('solid' | 'glass').`,
 
@@ -222,8 +222,14 @@ export const COMPONENT_PROMPTS: Record<string, Record<Platform, string>> = {
 /**
  * Get source code for a component on a specific platform
  */
-export function getComponentSource(component: string, platform: Platform): string {
-  return COMPONENT_SOURCE[component]?.[platform] || `// No source available for ${component} on ${platform}`;
+export function getComponentSource(
+  component: string,
+  platform: Platform,
+): string {
+  return (
+    COMPONENT_SOURCE[component]?.[platform] ||
+    `// No source available for ${component} on ${platform}`
+  );
 }
 
 /**
@@ -236,24 +242,33 @@ export function getPlatformPrompt(platform: Platform): string {
 /**
  * Get the component-specific AI prompt for a platform
  */
-export function getComponentPrompt(component: string, platform: Platform): string {
-  return COMPONENT_PROMPTS[component]?.[platform] || `// No prompt available for ${component} on ${platform}`;
+export function getComponentPrompt(
+  component: string,
+  platform: Platform,
+): string {
+  return (
+    COMPONENT_PROMPTS[component]?.[platform] ||
+    `// No prompt available for ${component} on ${platform}`
+  );
 }
 
 /**
  * Get combined AI prompt (platform + component rules)
  */
-export function getFullPrompt(platform: Platform, components: string[]): string {
-  let prompt = PLATFORM_PROMPTS[platform] + '\n\n';
-  
+export function getFullPrompt(
+  platform: Platform,
+  components: string[],
+): string {
+  let prompt = PLATFORM_PROMPTS[platform] + "\n\n";
+
   if (components.length > 0) {
-    prompt += 'COMPONENT RULES:\n';
+    prompt += "COMPONENT RULES:\n";
     for (const comp of components) {
       if (COMPONENT_PROMPTS[comp]?.[platform]) {
-        prompt += COMPONENT_PROMPTS[comp][platform] + '\n\n';
+        prompt += COMPONENT_PROMPTS[comp][platform] + "\n\n";
       }
     }
   }
-  
+
   return prompt;
 }

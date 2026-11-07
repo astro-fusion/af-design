@@ -5,9 +5,9 @@
  * @license MIT
  */
 
-import colors from './colors.json';
-import typography from './typography.json';
-import spacing from './spacing.json';
+import colors from "./colors.json";
+import typography from "./typography.json";
+import spacing from "./spacing.json";
 
 /**
  * Complete design token collection.
@@ -19,7 +19,7 @@ import spacing from './spacing.json';
 export const tokens = {
   colors,
   typography,
-  spacing
+  spacing,
 };
 
 /**

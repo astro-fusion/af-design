@@ -13,11 +13,13 @@ We love your input! We want to make contributing to this project as easy and tra
 This is a monorepo managed by `turbo` and `pnpm`.
 
 1.  **Install dependencies:**
+
     ```bash
     pnpm install
     ```
 
 2.  **Build all packages:**
+
     ```bash
     pnpm build
     ```

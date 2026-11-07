@@ -1,13 +1,13 @@
-import React from 'react';
-import { View, ViewProps, StyleSheet } from 'react-native';
+import React from "react";
+import { View, ViewProps, StyleSheet } from "react-native";
 
 interface CardProps extends ViewProps {
-  variant?: 'solid' | 'glass';
+  variant?: "solid" | "glass";
 }
 
 export const Card: React.FC<CardProps> = ({
   children,
-  variant = 'solid',
+  variant = "solid",
   style,
   ...props
 }) => {
@@ -29,16 +29,16 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   solid: {
-    backgroundColor: '#1a163a', // cosmic-800
-    shadowColor: '#000',
+    backgroundColor: "#1a163a", // cosmic-800
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 5,
   },
   glass: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
+    borderColor: "rgba(255, 255, 255, 0.1)",
   },
 });

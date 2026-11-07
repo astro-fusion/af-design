@@ -30,8 +30,14 @@ npm install @astrofusion/design-system-native  # React Native
 No build step required! Just include the CSS:
 
 ```html
-<link rel="stylesheet" href="https://astro-fusion.github.io/af-design/styles/tokens.css">
-<link rel="stylesheet" href="https://astro-fusion.github.io/af-design/styles/components.css">
+<link
+  rel="stylesheet"
+  href="https://astro-fusion.github.io/af-design/styles/tokens.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://astro-fusion.github.io/af-design/styles/components.css"
+/>
 
 <button class="af-button af-button--primary">Click Me</button>
 ```
@@ -39,7 +45,7 @@ No build step required! Just include the CSS:
 ### Usage (React)
 
 ```tsx
-import { Button, Card } from '@astrofusion/design-system-web';
+import { Button, Card } from "@astrofusion/design-system-web";
 
 export default function App() {
   return (
@@ -97,12 +103,12 @@ npx @astrofusion/design-mcp-server start
 Generate platform-specific AI prompts:
 
 ```typescript
-import { PromptEngine } from '@astrofusion/design-prompts';
+import { PromptEngine } from "@astrofusion/design-prompts";
 
 const prompt = PromptEngine.createContext({
-  platform: 'react-native',
-  components: ['Button', 'Card'],
-  tone: 'mystical'
+  platform: "react-native",
+  components: ["Button", "Card"],
+  tone: "mystical",
 });
 ```
 
@@ -117,12 +123,12 @@ cd packages/core/tokens
 npm run build
 ```
 
-| Output | Platform |
-|--------|----------|
-| `dist/css/tokens.css` | Web |
-| `dist/nativewind/theme.ts` | React Native |
-| `dist/swift/DesignTokens.swift` | iOS |
-| `dist/tokens.json` | MCP Server / AI |
+| Output                          | Platform        |
+| ------------------------------- | --------------- |
+| `dist/css/tokens.css`           | Web             |
+| `dist/nativewind/theme.ts`      | React Native    |
+| `dist/swift/DesignTokens.swift` | iOS             |
+| `dist/tokens.json`              | MCP Server / AI |
 
 ---
 

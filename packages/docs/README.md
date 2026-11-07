@@ -15,7 +15,7 @@ npm install @astrofusion/design-docs
 The easiest way to document a component with platform switching, code viewing, and AI prompt copying:
 
 ```tsx
-import { ComponentDoc } from '@astrofusion/design-docs';
+import { ComponentDoc } from "@astrofusion/design-docs";
 
 export default function ButtonPage() {
   return (
@@ -29,6 +29,7 @@ export default function ButtonPage() {
 ```
 
 This renders:
+
 - Platform switcher (Web, React Native, iOS, Android)
 - Source code viewer with copy button
 - AI prompt viewer with copy button
@@ -42,19 +43,19 @@ import {
   PlatformSwitcher,
   usePlatform,
   CodeViewer,
-  PromptViewer
-} from '@astrofusion/design-docs';
+  PromptViewer,
+} from "@astrofusion/design-docs";
 
 export default function CustomDoc() {
-  const { platform, setPlatform } = usePlatform('web');
+  const { platform, setPlatform } = usePlatform("web");
 
   return (
     <div>
       <PlatformSwitcher value={platform} onChange={setPlatform} />
-      
+
       <CodeViewer component="Button" platform={platform} />
-      
-      <PromptViewer platform={platform} components={['Button', 'Card']} />
+
+      <PromptViewer platform={platform} components={["Button", "Card"]} />
     </div>
   );
 }
@@ -69,27 +70,27 @@ import {
   getComponentSource,
   getPlatformPrompt,
   getComponentPrompt,
-  getFullPrompt
-} from '@astrofusion/design-docs';
+  getFullPrompt,
+} from "@astrofusion/design-docs";
 
 // Get Button source code for React Native
-const source = getComponentSource('Button', 'react-native');
+const source = getComponentSource("Button", "react-native");
 
 // Get full AI prompt for iOS
-const prompt = getPlatformPrompt('ios');
+const prompt = getPlatformPrompt("ios");
 
 // Get combined prompt (platform + component rules)
-const fullPrompt = getFullPrompt('android', ['Button', 'Card']);
+const fullPrompt = getFullPrompt("android", ["Button", "Card"]);
 ```
 
 ## Components
 
-| Component | Description |
-|-----------|-------------|
-| `PlatformSwitcher` | Tab-like switcher for platforms |
-| `CodeViewer` | Syntax-highlighted code with copy button |
-| `PromptViewer` | AI prompt display with copy button |
-| `ComponentDoc` | Full documentation block combining all above |
+| Component          | Description                                  |
+| ------------------ | -------------------------------------------- |
+| `PlatformSwitcher` | Tab-like switcher for platforms              |
+| `CodeViewer`       | Syntax-highlighted code with copy button     |
+| `PromptViewer`     | AI prompt display with copy button           |
+| `ComponentDoc`     | Full documentation block combining all above |
 
 ## Platforms Supported
 
