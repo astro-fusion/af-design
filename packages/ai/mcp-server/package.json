@@ -1,6 +1,7 @@
 {
   "name": "@astrofusion/design-mcp-server",
   "version": "0.0.1",
+  "type": "module",
   "bin": {
     "astrofusion-design-mcp": "./dist/index.js"
   },
